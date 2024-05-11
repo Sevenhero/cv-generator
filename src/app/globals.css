@@ -31,3 +31,17 @@ body {
     text-wrap: balance;
   }
 }
+
+@media print {
+  div {
+    page-break-inside: avoid;
+  }
+
+  .border {
+    border: 0;
+  }
+
+  .break-for-print {
+    page-break-after: always;
+  }
+}
