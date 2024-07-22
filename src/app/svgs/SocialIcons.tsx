@@ -6,7 +6,9 @@ export type SocialNames =
   | "twitter"
   | "xing"
   | "email"
-  | "github";
+  | "github"
+  | "phone"
+  ;
 // | "website";
 
 const icons: { [key: string]: JSX.Element } = {
@@ -127,16 +129,26 @@ const icons: { [key: string]: JSX.Element } = {
       />
     </svg>
   ),
+  phone: (
+    <svg className="h-8" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48">
+      <path fill="currentColor" d="M32 2h-16c-3.31 0-6 2.69-6 6v32c0 3.31 2.69 6 6 6h16c3.31 0 6-2.69 6-6v-32c0-3.31-2.69-6-6-6zm-4 40h-8v-2h8v2zm6.5-6h-21v-28h21v28z" />
+      <path d="M0 0h48v48h-48z" fill="none" />
+    </svg>
+  ),
 };
 
 export interface SocialIconProps {
   url?: string;
   social: SocialNames;
   email?: string;
+  phone?: string;
 }
-const SocialIcon = ({ url, social, email }: SocialIconProps) => {
+const SocialIcon = ({ url, social, email, phone }: SocialIconProps) => {
   if (email) {
     url = `mailto:${email}`;
+  }
+  if (phone) {
+    url = `tel:${phone}`;
   }
   const result = (
     <a

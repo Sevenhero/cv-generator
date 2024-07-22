@@ -7,5 +7,6 @@ export interface Experience {
   projectName?: string;
   technologies?: string[];
   roles?: string[];
-  url?: string;
+  projectUrl?: string;
+  companyUrl?: string;
 }

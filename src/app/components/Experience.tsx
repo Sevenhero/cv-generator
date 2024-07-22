@@ -8,39 +8,51 @@ const ExperienceComponent = ({
   description,
   from,
   till,
-  url,
+  projectUrl,
+  companyUrl,
   technologies,
   roles,
   projectName,
 }: Experience) => (
-  <div className="mb-4">
+  <div className="mt-4 break-fot-print">
     <div className="flex justify-between flex-wrap gap-2 w-full">
       <span className="w-[49%] flex flex-col">
+        <span className="text-gray-700">
+          {projectUrl && (
+            <Link
+              className="text-blue-600 font-semibold"
+              href={projectUrl}
+              target="_blank"
+            >
+              {projectName}
+            </Link>
+          )}
+          {!projectUrl && <span>{projectName}</span>}
+        </span>
         <span className="font-bold w-[49%]">{title}</span>
-        {projectName && <span>{projectName}</span>}
       </span>
       <span className="w-[49%] flex flex-col items-end">
         <span className="text-gray-700">
-          {url && (
+          {from} - {till}
+        </span>
+        <span className="text-gray-700">
+          {companyUrl && (
             <Link
               className="text-blue-600 font-semibold"
-              href={url}
+              href={companyUrl}
               target="_blank"
             >
               {company}
             </Link>
           )}
-          {!url && <span>{company}</span>}
-        </span>
-        <span className="text-gray-700">
-          {from} - {till}
+          {!companyUrl && <span>{company}</span>}
         </span>
       </span>
     </div>
     <p className="mt-2">{description}</p>
     {technologies && (
       <p className="mt-2">
-        technologies:{" "}
+        Technologien:{" "}
         {technologies?.map((technology, index) => (
           <span className="text-gray-800 italic font-bold" key={index}>
             {technology}
@@ -51,7 +63,7 @@ const ExperienceComponent = ({
     )}
     {roles && (
       <p className="mt-2">
-        roles:{" "}
+        Rollen:{" "}
         {roles?.map((role, index) => (
           <span className="text-gray-800 italic font-bold" key={index}>
             {role}

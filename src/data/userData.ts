@@ -3,20 +3,34 @@ import { UserData } from "../app/interfaces/userData";
 const userData: UserData = {
   firstName: "Sven",
   lastName: "Kernke",
-  title: "Fullstack Developer",
-  description: `Sven Kernke ist ein erfahrener Fullstack Web Developer mit Fachwissen in kontinuierlicher
-Integration, Softwaretests und Technologien wie Angular, Next.js, Ionic, TypeScript, Nest.js und Agile
-Methoden. Er verfügt über umfangreiche Frontend-Codierungsfähigkeiten und hat bei verschiedenen
-Unternehmen in der Softwareentwicklung gearbeitet.`,
+  title: "Software Schmied",
+  description: `Ich liefere qualitativ hochwertige Software dank meiner umfassenden Erfahrung in Projekten unterschiedlicher Komplexitätsstufen. Mein Talent liegt darin, komplexe Probleme in einfache, bearbeitbare Aufgaben zu zerlegen und manuelle Prozesse effizient zu digitalisieren. Meine Expertise konzentriert sich auf die Entwicklung mobiler Web-Applikationen, wobei ich eng mit meinen Kunden zusammenarbeite, um tiefgehende IT-Herausforderungen zu meistern.
+  
+Bevor ich mit der Arbeit beginne, analysiere ich gründlich Ihre Gesamtsituation, um sicherzustellen, dass alle relevanten Aspekte berücksichtigt werden. Dies ermöglicht es mir, Ihnen frühzeitig fundiertes Feedback zur Realisierbarkeit Ihrer geplanten Ziele und Aufgaben zu geben. Durch die Entwicklung maßgeschneiderter Lösungen, die auf dem neuesten Stand der Technologie basieren, sichere ich eine nachhaltige Weiterentwicklung und langfristigen Erfolg für Ihr Unternehmen.
+
+Ich digitalisiere zeitaufwendige oder manuelle Prozesse, um erhebliche Zeit- und Kostenersparnisse für meine Kunden zu gewährleisten. Darüber hinaus unterstütze ich Ihr Team bei der Entwicklung, um gemeinsam qualitativ hochwertige Ergebnisse zu erzielen.
+
+- Von der Konzeption bis zur Fertigstellung Ihres Webauftritts stehe ich Ihnen zur Seite. 
+Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
   contact: {
-    email: "sven.kernke@yahoo.de",
-    city: "Neuwied",
+    email: "kernke.dev@gmail.com",
+    // city: "Neuwied",
     phone: "+4917682949586",
-    street: "Bachstraße 102",
-    zip: "56566",
+    // street: "Bachstraße 102",
+    // zip: "56566",
   },
   // image: "https://randomuser,//FIXME:
   topSkills: ["Typescript/JavaScript", "Nestjs", "Nextjs", "Angular"],
+  skills: [
+    "Nestjs",
+    "Nextjs",
+    "Angular",
+    "Ionic",
+    "Typescript",
+    "Javascript",
+    "CSS3",
+    "HTML5",
+  ],
   languages: [
     { language: "German", level: "Muttersprache" },
     { language: "English", level: "Fließend" },
@@ -35,8 +49,12 @@ Unternehmen in der Softwareentwicklung gearbeitet.`,
       social: "github",
     },
     {
-      email: "sven.kernke@yahoo.de",
+      email: "kernke.dev@gmail.com",
       social: "email",
+    },
+    {
+      phone: "+4917682949586",
+      social: "phone",
     },
   ],
   experience: [
@@ -47,8 +65,8 @@ Unternehmen in der Softwareentwicklung gearbeitet.`,
       from: "04.2024",
       till: "04.2024",
       description: "",
-      url: "https://www.jambit.com/",
-      technologies: ["GO", "Kubernetes", "Angular"],
+      projectUrl: "https://www.jambit.com/",
+      technologies: ["nextjs", "nestjs"],
       roles: ["Fullstack"],
     },
     {
@@ -59,7 +77,7 @@ Unternehmen in der Softwareentwicklung gearbeitet.`,
       till: "11.2023",
       description:
         "A Bike shop, what are you Expecting? I'm a fullstack developer, I do everything from frontend to backend.",
-      url: "https://www.bike24.de",
+      companyUrl: "https://www.bike24.de",
       technologies: [
         "React(Nextjs)",
         "Node.js(Nestjs)",
@@ -79,13 +97,14 @@ Unternehmen in der Softwareentwicklung gearbeitet.`,
     },
     {
       title: "Software Developer",
+      companyUrl: "https://www.cgm.com",
       company: "CompuGroup Medical GmbH",
       projectName: "Clickdoc",
       from: "08.2019",
       till: "07.2021",
       description: `Patienten/Praxis-Verwaltung mit Kalender und Karteikarten und
       Erweiterung für Zahnärzte.`,
-      url: "https://www.cgm.com/deu_de/loesungen/zahnarztpraxis.html",
+      projectUrl: "https://www.cgm.com/deu_de/loesungen/zahnarztpraxis.html",
       technologies: [
         "Angular",
         "Docker",
@@ -97,43 +116,163 @@ Unternehmen in der Softwareentwicklung gearbeitet.`,
       ],
       roles: ["Frontend"],
     },
-  ],
-  education: [
     {
-      title: "Apprenticeship / Fullstack Developer",
+      title: "Fullstack Developer",
       company: "Sowatech SoftwareTechnik GmbH",
-      from: "08.2015",
-      till: "07.2019",
-      description: `Software, um den Gesundheitszustand von Mitarbeitern herauszufinden
-      und gegebenenfalls Maßnahmen zu ergreifen. Anschließend konnten
-      Folgegespräche per Videocall mit Ärzten durchgeführt werden, bei der
-      eine Akte geführt wurde. Ein Online Shop in Angular. Eine App zur
-      Erfassung/Instandhaltung von Windkraftanlagen. Eine Website & App zur
-      Planung und Erfassung von Gebäudereinigung. Lernplattform und
-      Management von Ressourcen/Kursen/Materialien und Zertifizierung. Eine
-      Lernplattform zum Trainieren von Busfahrern. Eine App zur Erfassung
-      vom aktuellen Zustand von Bus- und Bahnhaltestellen. Kalender Website
-      zur Verwaltung einer Spedition (Urlaubsmanagement mit Antragstellung
-      und Genehmigungsprozess).`,
-      url: "https://www.sowatech.de",
+      companyUrl: "https://www.sowatech.de/",
+      projectName: "Leveso",
+      from: "08.2016",
+      till: "07.2018",
+      description: `Angular SPA zur Verwaltung zur Erstellung von Prüfungen für Feuerwehrleute und Ionic App zur Prüfung. Außerdem eine SPA um den gesamten ablauf der praktischen Prüfungen zu überprüfen und verwalten.`,
+      projectUrl: "https://leveso.de",
       technologies: [
         "Entity Framework",
         "Angular",
         "Ionic",
-        "WinForms",
         "Jest",
         "Karma",
-        "Cypress",
-        "Protractor",
         "SQL",
         "MSSQL",
         "PouchDB",
         "Github",
-        "SVN",
-        "Jira",
         "C#",
-        "ASP.net",
       ],
+    },
+    {
+      title: "Fullstack Developer",
+      projectName: "Koveb",
+      company: "Sowatech SoftwareTechnik GmbH",
+      from: "08.2018",
+      till: "07.2019",
+      description:
+        "SPA zur Erstellung und Auswertung von Benutzerdefinierten Fragebögen zu Bahnhöfen und Bushaltestellen. Außerdem eine App um die Umfrage durchzuführen. Außerdem ein SPA zur erstellung und Prüfung der Busfahrerlizenzen",
+      projectUrl: "https://www.koveb.de/",
+      companyUrl: "https://www.sowatech.de/",
+      technologies: [
+        "Entity Framework",
+        "Angular",
+        "Jest",
+        "Karma",
+        "Ionic",
+        "SQL",
+        "MSSQL",
+        "Github",
+        "C#",
+      ],
+    },
+    {
+      title: "Fullstack Developer",
+      company: "Sowatech SoftwareTechnik GmbH",
+      projectName: "Speditions Software",
+      companyUrl: "https://www.sowatech.de/",
+      from: "08.2017",
+      till: "07.2018",
+      description:
+        "SPA für eine Spedition zur Verwaltung von Urlaub und Krankheit der Mitarbeiter mit integriertem Genehmigungsprozess.",
+      technologies: [
+        "Entity Framework",
+        "Angular",
+        "Jest",
+        "Karma",
+        "SQL",
+        "MSSQL",
+        "Github",
+        "C#",
+      ],
+    },
+    {
+      title: "Fullstack Developer",
+      projectName: "Preventiometer",
+      company: "Sowatech SoftwareTechnik GmbH",
+      from: "08.2017",
+      till: "07.2018",
+      description:
+        "SPA zur Anbindung diverser Geräte zur Erfassung von Gesundheitsdaten. Außerdem eine Applikation um mit einem Patienten ein Video Call zu führen und die Daten der Befunde zu besprechen.",
+      projectUrl:
+        "https://www.futrex.eu/futrex-product-portfolio/ipex5-pr%C3%A4ventiometer/",
+      companyUrl: "https://www.sowatech.de/",
+      technologies: [
+        "Entity Framework",
+        "Angular",
+        "Jest",
+        "Karma",
+        "SQL",
+        "MSSQL",
+        "Github",
+        "C#",
+      ],
+    },
+    {
+      title: "Fullstack Developer",
+      projectName: "medoco GmbH",
+      company: "Sowatech SoftwareTechnik GmbH",
+      from: "08.2016",
+      till: "07.2017",
+      description: `Angular SPA zur Verwaltung von Gebäudereinigung und Pflege und Ionic App zur Abarbeitung von 'Jobs'`,
+      projectUrl: "http://medoco.de/",
+      companyUrl: "https://www.sowatech.de/",
+      technologies: [
+        "Entity Framework",
+        "Angular",
+        "Ionic",
+        "Jest",
+        "Karma",
+        "SQL",
+        "MSSQL",
+        "PouchDB",
+        "Github",
+        "C#",
+      ],
+    },
+    {
+      title: "Fullstack Developer",
+      projectName: "Spranz GmbH",
+      company: "Sowatech SoftwareTechnik GmbH",
+      from: "08.2015",
+      till: "07.2016",
+      description: `Online Webshop entwickelt mit Angular und C#`,
+      projectUrl: "https://spranz.de",
+      companyUrl: "https://www.sowatech.de/",
+      technologies: [
+        "Entity Framework",
+        "Angular",
+        "Jest",
+        "Karma",
+        "SQL",
+        "MSSQL",
+        "Github",
+        "C#",
+      ],
+    },
+  ],
+  testimonials: [
+    {
+      name: "Jan Sobotta",
+      jobDescription: `Selbstständiger Berater 
+      Senior Softwareentwickler`,
+      testimonial: `In meiner langen Zusammenarbeit habe ich Sven Kernke als einen sehr lernfähigen und guten Entwickler kennengelernt.
+Er arbeitet sich schnell und zuverlässig in Probleme ein und löst diese kompetent und zu voller Zufriedenheit.`,
+      imgName: "/jan_sobotta.jpeg",
+    },
+    {
+      name: "Noël Elias Schenk",
+      jobDescription: "Senior Frontend Developer",
+      testimonial: `Sven Kernke ist ein herausragender Fullstack-Entwickler. Seine JavaScript Fähigkeiten sind beeindruckend und seine Arbeit zeichnet sich durch die stetig hohe Qualität aus. Sven ist ein äußerst zuverlässiger und angenehmer Kollege. Es ist immer eine Freude, mit ihm zusammenzuarbeiten.`,
+      imgName: "/noel_schenk.jpeg",
+    },
+    {
+      name: "Sebastian Ulbricht",
+      jobDescription: "Senior Softwareentwickler",
+      testimonial: `Ich hatte das Vergnügen, etwa ein Jahr lang mit Sven zusammenzuarbeiten. Während dieser Zeit bewies er stets außergewöhnliche Fähigkeiten und Engagement als Softwareentwickler. Svens Expertise in TypeScript, React, NextJS, NestJS und Node war von Anfang an offensichtlich, da er Projekte nahtlos von Grund auf neu aufsetzte und sicherstellte, dass sie mit einem starken Fokus auf Wartbarkeit und Automatisierung gebaut wurden.
+
+Einer von Svens herausragenden Beiträgen war seine Arbeit an der Verbesserung unserer CI/CD-Pipelines. Sein innovativer Ansatz und sein umfassendes Verständnis des Entwicklungslebenszyklus haben unsere Prozesse erheblich gestrafft, was zu schnelleren und zuverlässigeren Bereitstellungen führte. Svens Fähigkeit, potenzielle Probleme vorauszusehen und sie proaktiv anzugehen, war für unser Team von unschätzbarem Wert.
+
+Neben seinen technischen Fähigkeiten war Sven auch ein bemerkenswertes Teammitglied. Er war immer bereit zu helfen, sei es bei der Bewältigung einer komplexen Programmieraufgabe oder bei der Diskussion von Ideen und Lösungen. Sein kooperativer Geist und seine Bereitschaft, seine Kollegen zu unterstützen, förderten ein positives und produktives Arbeitsumfeld.
+
+Svens Engagement für hervorragende Leistungen in Kombination mit seiner freundlichen und zugänglichen Art machten ihn zu einem unverzichtbaren Teil unseres Teams. Ich bin zuversichtlich, dass er auch weiterhin hervorragende Leistungen erbringen und für jedes Unternehmen, dem er beitritt, von großem Wert sein wird.
+
+Übersetzt mit DeepL.com (kostenlose Version)`,
+      imgName: "/sebastian_ulbricht.jpeg",
     },
   ],
 };
