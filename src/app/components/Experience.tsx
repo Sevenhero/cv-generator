@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Experience } from "../interfaces/experience";
-import userData from "../../data/userData";
 
 const ExperienceComponent = ({
   title,

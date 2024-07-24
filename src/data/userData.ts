@@ -3,7 +3,7 @@ import { UserData } from "../app/interfaces/userData";
 const userData: UserData = {
   firstName: "Sven",
   lastName: "Kernke",
-  title: "Software Schmied",
+  title: "Software Entwickler",
   description: `Ich liefere qualitativ hochwertige Software dank meiner umfassenden Erfahrung in Projekten unterschiedlicher Komplexitätsstufen. Mein Talent liegt darin, komplexe Probleme in einfache, bearbeitbare Aufgaben zu zerlegen und manuelle Prozesse effizient zu digitalisieren. Meine Expertise konzentriert sich auf die Entwicklung mobiler Web-Applikationen, wobei ich eng mit meinen Kunden zusammenarbeite, um tiefgehende IT-Herausforderungen zu meistern.
   
 Bevor ich mit der Arbeit beginne, analysiere ich gründlich Ihre Gesamtsituation, um sicherzustellen, dass alle relevanten Aspekte berücksichtigt werden. Dies ermöglicht es mir, Ihnen frühzeitig fundiertes Feedback zur Realisierbarkeit Ihrer geplanten Ziele und Aufgaben zu geben. Durch die Entwicklung maßgeschneiderter Lösungen, die auf dem neuesten Stand der Technologie basieren, sichere ich eine nachhaltige Weiterentwicklung und langfristigen Erfolg für Ihr Unternehmen.
@@ -32,8 +32,8 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
     "HTML5",
   ],
   languages: [
-    { language: "German", level: "Muttersprache" },
-    { language: "English", level: "Fließend" },
+    { language: "Deutsch", level: "Muttersprache" },
+    { language: "Englisch", level: "Fließend" },
   ],
   social: [
     {
@@ -70,13 +70,13 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       roles: ["Fullstack"],
     },
     {
-      title: "Fullstack Developer",
+      title: "Fullstack Entwickler",
       company: "Bike24 GmbH",
       projectName: "OMS – Order Management Service",
       from: "08.2021",
       till: "11.2023",
       description:
-        "A Bike shop, what are you Expecting? I'm a fullstack developer, I do everything from frontend to backend.",
+        "Backend Service zur Verwaltung von Bestellungen und Kundeninformationen. - die komplette Logik ab dem Zeitpunkt der Bestellung bis zur Auslieferung. Außerdem Tools für den Kundensupport.",
       companyUrl: "https://www.bike24.de",
       technologies: [
         "React(Nextjs)",
@@ -96,7 +96,7 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       ],
     },
     {
-      title: "Software Developer",
+      title: "Software Entwickler",
       companyUrl: "https://www.cgm.com",
       company: "CompuGroup Medical GmbH",
       projectName: "Clickdoc",
@@ -117,7 +117,7 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       roles: ["Frontend"],
     },
     {
-      title: "Fullstack Developer",
+      title: "Fullstack Entwickler",
       company: "Sowatech SoftwareTechnik GmbH",
       companyUrl: "https://www.sowatech.de/",
       projectName: "Leveso",
@@ -139,7 +139,7 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       ],
     },
     {
-      title: "Fullstack Developer",
+      title: "Fullstack Entwickler",
       projectName: "Koveb",
       company: "Sowatech SoftwareTechnik GmbH",
       from: "08.2018",
@@ -161,7 +161,7 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       ],
     },
     {
-      title: "Fullstack Developer",
+      title: "Fullstack Entwickler",
       company: "Sowatech SoftwareTechnik GmbH",
       projectName: "Speditions Software",
       companyUrl: "https://www.sowatech.de/",
@@ -181,7 +181,7 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       ],
     },
     {
-      title: "Fullstack Developer",
+      title: "Fullstack Entwickler",
       projectName: "Preventiometer",
       company: "Sowatech SoftwareTechnik GmbH",
       from: "08.2017",
@@ -203,7 +203,7 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       ],
     },
     {
-      title: "Fullstack Developer",
+      title: "Fullstack Entwickler",
       projectName: "medoco GmbH",
       company: "Sowatech SoftwareTechnik GmbH",
       from: "08.2016",
@@ -225,7 +225,7 @@ Bei Interesse an einer Zusammenarbeit freue ich mich auf Ihre Kontaktaufnahme.`,
       ],
     },
     {
-      title: "Fullstack Developer",
+      title: "Fullstack Entwickler",
       projectName: "Spranz GmbH",
       company: "Sowatech SoftwareTechnik GmbH",
       from: "08.2015",
@@ -256,7 +256,7 @@ Er arbeitet sich schnell und zuverlässig in Probleme ein und löst diese kompet
     },
     {
       name: "Noël Elias Schenk",
-      jobDescription: "Senior Frontend Developer",
+      jobDescription: "Senior Frontend Entwickler",
       testimonial: `Sven Kernke ist ein herausragender Fullstack-Entwickler. Seine JavaScript Fähigkeiten sind beeindruckend und seine Arbeit zeichnet sich durch die stetig hohe Qualität aus. Sven ist ein äußerst zuverlässiger und angenehmer Kollege. Es ist immer eine Freude, mit ihm zusammenzuarbeiten.`,
       imgName: "/noel_schenk.jpeg",
     },
@@ -269,9 +269,7 @@ Einer von Svens herausragenden Beiträgen war seine Arbeit an der Verbesserung u
 
 Neben seinen technischen Fähigkeiten war Sven auch ein bemerkenswertes Teammitglied. Er war immer bereit zu helfen, sei es bei der Bewältigung einer komplexen Programmieraufgabe oder bei der Diskussion von Ideen und Lösungen. Sein kooperativer Geist und seine Bereitschaft, seine Kollegen zu unterstützen, förderten ein positives und produktives Arbeitsumfeld.
 
-Svens Engagement für hervorragende Leistungen in Kombination mit seiner freundlichen und zugänglichen Art machten ihn zu einem unverzichtbaren Teil unseres Teams. Ich bin zuversichtlich, dass er auch weiterhin hervorragende Leistungen erbringen und für jedes Unternehmen, dem er beitritt, von großem Wert sein wird.
-
-Übersetzt mit DeepL.com (kostenlose Version)`,
+Svens Engagement für hervorragende Leistungen in Kombination mit seiner freundlichen und zugänglichen Art machten ihn zu einem unverzichtbaren Teil unseres Teams. Ich bin zuversichtlich, dass er auch weiterhin hervorragende Leistungen erbringen und für jedes Unternehmen, dem er beitritt, von großem Wert sein wird.`,
       imgName: "/sebastian_ulbricht.jpeg",
     },
   ],

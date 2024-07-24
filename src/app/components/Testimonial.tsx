@@ -16,7 +16,7 @@ const TestimonialComponent = ({
   imgwidth: imgWidth = 128,
 }: TestimonialWithClassName) => {
   return (
-    <li className={"flex mb-8" + " " + className}>
+    <li className={`flex mb-8 ${className}`}>
       <div className="flex flex-col min-w-60 items-center flex-wrap">
         {imgName && (
           <Image

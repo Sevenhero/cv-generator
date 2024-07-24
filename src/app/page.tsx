@@ -11,7 +11,7 @@ import TestimonialComponent from "./components/Testimonial";
 
 export default function Home() {
   const getFullName = () => {
-    return userData.firstName + " " + userData.lastName;
+    return `${userData.firstName} ${userData.lastName}`;
   };
 
   const [user] = useState<UserData>(userData);
@@ -124,7 +124,7 @@ export default function Home() {
               </div>
               <div className="bg-white border rounded-lg p-6 page-break-before">
                 <section>
-                  <h2 className="text-2xl font-bold mt-6 mb-4">Erfahrungen</h2>
+                  <h2 className="text-2xl font-bold mt-6 mb-4">Projekte</h2>
                   {userData.experience?.map((data, index) => (
                     <ExperienceComponent key={index} {...data} />
                   ))}
