@@ -32,7 +32,7 @@ const ExperienceComponent = ({
       </span>
       <span className="w-[49%] flex flex-col items-end">
         <span className="text-gray-700">
-          {from} - {till}
+          {from} {till ? "-" : ""} {till}
         </span>
         <span className="text-gray-700">
           {companyUrl && (

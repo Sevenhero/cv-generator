@@ -122,7 +122,7 @@ export default function Home() {
                   </>
                 )}
               </div>
-              <div className="bg-white border rounded-lg p-6 page-break-before">
+              <div className="bg-white border rounded-lg p-6">
                 <section>
                   <h2 className="text-2xl font-bold mt-6 mb-4">Projekte</h2>
                   {userData.experience?.map((data, index) => (
