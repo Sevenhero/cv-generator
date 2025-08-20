@@ -28,7 +28,7 @@ const ExperienceComponent = ({
           )}
           {!projectUrl && <span>{projectName}</span>}
         </span>
-        <span className="font-bold w-[49%]">{title}</span>
+        {!title && <span className="font-bold w-[49%]">{title}</span>}
       </span>
       <span className="w-[49%] flex flex-col items-end">
         <span className="text-gray-700">

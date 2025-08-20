@@ -8,11 +8,26 @@ import SkillIcon from "./components/SkillIcon";
 import { UserData } from "./interfaces/userData";
 import SocialIcon from "./svgs/SocialIcons";
 import TestimonialComponent from "./components/Testimonial";
+import Link from "next/link";
 
 export default function Home() {
   const getFullName = () => {
     return `${userData.firstName} ${userData.lastName}`;
   };
+
+  const getCompanyNames = () => {
+    const experiences = userData.experience ?? [];
+    return Array.from(
+      new Map(
+        experiences.map(item => [item.company, { company: item.company, url: item.companyUrl }])
+      ).values()
+    );
+  };
+
+
+  const getTechnologies = () => {
+    return Array.from(new Set(((userData.experience ?? []).map(item => item.technologies).flatMap(tech => tech))))
+  }
 
   const [user] = useState<UserData>(userData);
   return (
@@ -121,6 +136,34 @@ export default function Home() {
                     </p>
                   </>
                 )}
+                <section>
+                  <h2 className="text-2xl font-bold mt-6 mb-4">Firmen</h2>
+                  <ul>
+                    {getCompanyNames().map(({ company, url }, index) =>
+                      url ? (
+                        <li><Link
+                          key={index}
+                          className="text-blue-600 font-semibold"
+                          href={url}
+                          target="_blank"
+                        >
+                          {company}
+                        </Link>
+                        </li>
+                      ) : (
+                        <li>
+                          <span key={index} className="font-semibold">
+                            {company}
+                          </span>
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </section>
+                <section>
+                  <h2 className="text-2xl font-bold mt-6 mb-4">Technologien</h2>
+                  <div>{getTechnologies().join(", ")}</div>
+                </section>
               </div>
               <div className="bg-white border rounded-lg p-6">
                 <section>
