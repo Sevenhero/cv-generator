@@ -141,8 +141,7 @@ export default function Home() {
                   <ul>
                     {getCompanyNames().map(({ company, url }, index) =>
                       url ? (
-                        <li><Link
-                          key={index}
+                        <li key={index}><Link
                           className="text-blue-600 font-semibold"
                           href={url}
                           target="_blank"
@@ -151,8 +150,8 @@ export default function Home() {
                         </Link>
                         </li>
                       ) : (
-                        <li>
-                          <span key={index} className="font-semibold">
+                        <li key={index}>
+                          <span className="font-semibold">
                             {company}
                           </span>
                         </li>
