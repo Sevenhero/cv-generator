@@ -16,8 +16,8 @@ const TestimonialComponent = ({
   imgwidth: imgWidth = 128,
 }: TestimonialWithClassName) => {
   return (
-    <li className={`flex mb-8 ${className}`}>
-      <div className="flex flex-col min-w-60 items-center flex-wrap">
+    <li className={`flex sm:flex-row flex-col mb-8 ${className}`}>
+      <div className="flex flex-col min-w-48 sm:items-center items-start  flex-wrap">
         {imgName && (
           <Image
             className="rounded-full pb-2"
@@ -28,7 +28,7 @@ const TestimonialComponent = ({
           />
         )}
         <h3 className="font-bold">{name}</h3>
-        <span className="text-center whitespace-pre-line">
+        <span className="sm:text-center whitespace-pre-line">
           {jobDescription}
         </span>
       </div>

@@ -33,12 +33,12 @@ export default function Home() {
   return (
     <>
       <div className="bg-gray-100">
-        <div className="md:container mx-auto py-8">
-          <div className="grid gap-6 px-8">
+        <div className="mx-auto sm:py-8 w-full max-w-[1000px]">
+          <div className="grid gap-6 sm:px-8">
             <div className="col-span-12 md:col-span-4">
               <div className="bg-white border rounded-lg p-6">
-                <div className="flex items-center space-x-6 justify-around">
-                  <div className="flex flex-col items-center">
+                <div className="flex items-center sm:flex-row flex-col space-x-6 justify-around">
+                  <div className="flex flex-col sm:items-center self-start ">
                     <div className="relative w-32 h-32 mb-6">
                       <Image
                         alt="Message Image"
@@ -181,7 +181,7 @@ export default function Home() {
                       <TestimonialComponent
                         key={index}
                         {...testimonial}
-                        className={index % 2 !== 0 ? "flex-row-reverse" : ""}
+                        className={index % 2 !== 0 ?  "sm:flex-row md:flex-row-reverse" : ""}
                       />
                     ))}
                   </ul>
