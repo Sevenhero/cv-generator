@@ -6,6 +6,7 @@ import JavaScriptIcon from "../icons/JavascriptIcon";
 import NestJsIcon from "../icons/NestjsIcon";
 import NextJsIcon from "../icons/NextjsIcon";
 import TypeScriptIcon from "../icons/Typescript";
+import ReactIcon from "../icons/ReactIcon";
 import { Skill } from "../interfaces/userData";
 
 interface SkillIconProps {
@@ -22,7 +23,8 @@ const mapping: IconMapping = {
   Javascript: <JavaScriptIcon />,
   CSS3: <CssIcon />,
   HTML5: <HtmlIcon />,
-  Ionic: <IonicIcon />
+  Ionic: <IonicIcon />,
+  React: <ReactIcon />,
 };
 
 const SkillIcon = ({ skill }: SkillIconProps) => {

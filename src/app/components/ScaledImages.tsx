@@ -7,8 +7,10 @@ const ScaledImage = ({ src, alt, width, height }: { src: string, alt: string, wi
       <Image
         src={src}
         alt={alt}
-        layout="fill"
-        objectFit="contain"
+        // layout="fill"
+        // objectFit="contain"
+        style={{ objectFit: "contain" }}
+        priority
         className="image"
       />
     </div>

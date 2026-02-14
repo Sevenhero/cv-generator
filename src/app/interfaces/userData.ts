@@ -35,7 +35,8 @@ export type Skill =
   | "Javascript"
   | "CSS3"
   | "HTML5"
-  | "Ionic";
+  | "Ionic"
+  | "React";
 
 export interface Testimonial {
   name: string;

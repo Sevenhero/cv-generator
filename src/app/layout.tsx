@@ -12,7 +12,7 @@ function formatDateDDMMYYYY(date = new Date()) {
   return `${dd}${mm}${yyyy}`;
 }
 
-const title = () => `${userData.lastName}_${userData.firstName}_${formatDateDDMMYYYY()}`;
+const title = () => `${userData.lastName}_${userData.firstName}`;
 
 export const metadata: Metadata = {
   title: title(),

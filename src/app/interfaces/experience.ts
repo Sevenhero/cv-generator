@@ -6,6 +6,7 @@ export interface Experience {
   description: string;
   projectName?: string;
   technologies?: string[];
+  addition?: string[];
   roles?: string[];
   projectUrl?: string;
   companyUrl?: string;

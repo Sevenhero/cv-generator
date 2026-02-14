@@ -37,16 +37,15 @@ export default function Home() {
           <div className="grid gap-6 sm:px-8">
             <div className="col-span-12 md:col-span-4">
               <div className="bg-white border rounded-lg p-6">
-                <div className="flex items-center sm:flex-row flex-col space-x-6 justify-around">
-                  <div className="flex flex-col sm:items-center self-start ">
-                    <div className="relative w-32 h-32 mb-6">
+                <div className="flex gap-4 items-center sm:flex-row flex-col justify-around">
+                  <div className="flex flex-col items-center self-center ">
+                    <div className="relative mb-2 h-32 w-32">
                       <Image
+                        src="/smaller.png"
                         alt="Message Image"
-                        src={"/smaller.jpg"}
-                        className="rounded-full border shrink-0 top-8"
-                        layout="fill"
-                        objectFit="cover"
-                        objectPosition="center"
+                        fill
+                        sizes="128px"
+                        className="rounded-full border object-cover object-center"
                       />
                     </div>
                     <h1 className="text-xl font-bold">{getFullName()}</h1>
@@ -66,12 +65,12 @@ export default function Home() {
                     </a>
                   </div> */}
                   </div>
-                  <div className="self-start pt-4">
-                    <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">
+                  <div className="self-center">
+                    <h4 className="text-gray-700 uppercase sm:text-left text-center font-bold tracking-wider mb-2">
                       Kontakt
-                    </span>
+                    </h4>
                     {/* <Contact  {...user.contact} /> */}
-                    <div className="flex items-center gap-6 my-2 flex-wrap">
+                    <div className="flex items-center gap-6 flex-wrap">
                       {userData.social?.map(
                         ({ social, email, url, phone }, index) => (
                           <SocialIcon
@@ -85,10 +84,10 @@ export default function Home() {
                       )}
                     </div>
                   </div>
-                  <div className="flex flex-col self-start pt-4">
-                    <span className="text-gray-700 uppercase font-bold tracking-wider">
+                  <div className="flex flex-col self-center">
+                    <h4 className="text-gray-700 uppercase text-center sm:text-left font-bold tracking-wider">
                       Sprachen
-                    </span>
+                    </h4>
                     <ul>
                       {user.languages.map(({ language, level }, index) => (
                         <li key={index}>
@@ -113,7 +112,7 @@ export default function Home() {
                     </ul>
                   </div> */}
                 <div className="flex flex-col">
-                  <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">
+                  <span className="text-gray-700 uppercase font-bold text-center tracking-wider mb-2 sm:text-left">
                     Skills
                   </span>
                   <ul className="flex gap-4 flex-wrap justify-evenly items-center">
@@ -137,7 +136,10 @@ export default function Home() {
                   </>
                 )}
                 <section>
-                  <h2 className="text-2xl font-bold mt-6 mb-4">Firmen</h2>
+                  <>
+                    <hr className="my-4 border-t border-gray-300"></hr>
+                    <h2 className="text-2xl font-boldmb-4">Firmen</h2>
+                  </>
                   <ul>
                     {getCompanyNames().map(({ company, url }, index) =>
                       url ? (
@@ -160,13 +162,16 @@ export default function Home() {
                   </ul>
                 </section>
                 <section>
-                  <h2 className="text-2xl font-bold mt-6 mb-4">Technologien</h2>
+                  <>
+                    <hr className="my-4 border-t border-gray-300"></hr>
+                    <h2 className="text-2xl font-boldmb-4">Technologien</h2>
+                  </>
                   <div>{getTechnologies().join(", ")}</div>
                 </section>
               </div>
               <div className="bg-white border rounded-lg p-6">
                 <section>
-                  <h2 className="text-2xl font-bold mt-6 mb-4">Projekte</h2>
+                  <h2 className="text-2xl font-boldmb-4">Projekte</h2>
                   {userData.experience?.map((data, index) => (
                     <ExperienceComponent key={index} {...data} />
                   ))}
@@ -181,7 +186,7 @@ export default function Home() {
                       <TestimonialComponent
                         key={index}
                         {...testimonial}
-                        className={index % 2 !== 0 ?  "sm:flex-row md:flex-row-reverse" : ""}
+                        className={index % 2 !== 0 ? "sm:flex-row md:flex-row-reverse" : ""}
                       />
                     ))}
                   </ul>

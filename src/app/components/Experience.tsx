@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Experience } from "../interfaces/experience";
+import "./Experience.css";
 
 const ExperienceComponent = ({
   title,
@@ -10,47 +11,55 @@ const ExperienceComponent = ({
   projectUrl,
   companyUrl,
   technologies,
+  addition,
   roles,
   projectName,
 }: Experience) => (
-  <div className="mt-4 break-fot-print">
-    <div className="flex justify-between flex-wrap gap-2 w-full">
-      <span className="w-[49%] flex flex-col">
-        <span className="text-gray-700">
-          {projectUrl && (
-            <Link
-              className="text-blue-600 font-semibold"
-              href={projectUrl}
-              target="_blank"
-            >
-              {projectName}
-            </Link>
-          )}
-          {!projectUrl && <span>{projectName}</span>}
-        </span>
-        {!title && <span className="font-bold w-[49%]">{title}</span>}
+  <div className="mt-8 break-fot-print">
+    <div className="grid experience-header">
+      <div className="font-bold">{title}</div>
+      <span className="text-gray-700 sm:text-end text-left">
+        {from} {till ? "-" : ""} {till}
       </span>
-      <span className="w-[49%] flex flex-col items-end">
-        <span className="text-gray-700">
-          {from} {till ? "-" : ""} {till}
-        </span>
-        <span className="text-gray-700">
-          {companyUrl && (
-            <Link
-              className="text-blue-600 font-semibold"
-              href={companyUrl}
-              target="_blank"
-            >
-              {company}
-            </Link>
-          )}
-          {!companyUrl && <span>{company}</span>}
-        </span>
-      </span>
+      <div>
+        {companyUrl && (
+          <Link
+            className="text-blue-600 font-semibold"
+            href={companyUrl}
+            target="_blank"
+          >
+            {company}
+          </Link>
+        )}
+        {!companyUrl && <span>{company}</span>}
+        {projectName && " - "}
+        {projectUrl && (
+          <Link
+            className="text-blue-600 font-semibold"
+            href={projectUrl}
+            target="_blank"
+          >
+            {projectName}
+          </Link>
+        )}
+        {!projectUrl && <span>{projectName}</span>}
+      </div>
     </div>
-    <p className="mt-2">{description}</p>
+    <div className="mt-2">{description}</div>
+    {addition && (
+      <div className="mt-2">
+        <ul>
+          {addition?.map((role, index) => (
+            <li className="text-gray-800 italic font-bold" key={index}>
+              {role}
+              {index + 1 < addition.length ? ", " : ""}
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
     {technologies && (
-      <p className="mt-2">
+      <div>
         Technologien:{" "}
         {technologies?.map((technology, index) => (
           <span className="text-gray-800 italic font-bold" key={index}>
@@ -58,10 +67,10 @@ const ExperienceComponent = ({
             {index + 1 < technologies.length ? ", " : ""}
           </span>
         ))}
-      </p>
+      </div>
     )}
     {roles && (
-      <p className="mt-2">
+      <div>
         Rollen:{" "}
         {roles?.map((role, index) => (
           <span className="text-gray-800 italic font-bold" key={index}>
@@ -69,7 +78,7 @@ const ExperienceComponent = ({
             {index + 1 < roles.length ? ", " : ""}
           </span>
         ))}
-      </p>
+      </div>
     )}
   </div>
 );
