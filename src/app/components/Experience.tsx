@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { Experience } from "../interfaces/experience";
+import Link from "next/link";
 
 const ExperienceComponent = ({
   title,

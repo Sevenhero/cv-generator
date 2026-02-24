@@ -1,4 +1,5 @@
 import { SocialIconProps, SocialNames } from "../svgs/SocialIcons";
+
 import { Experience } from "./experience";
 import { Language } from "./language";
 

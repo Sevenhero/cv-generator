@@ -1,5 +1,5 @@
-import { Testimonial } from "../interfaces/userData";
 import Image from "next/image";
+import { Testimonial } from "../interfaces/userData";
 
 interface TestimonialWithClassName extends Testimonial {
   className?: string;

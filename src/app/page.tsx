@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
-import userData from "../data/userData";
 import ExperienceComponent from "./components/Experience";
-import SkillIcon from "./components/SkillIcon";
-import { UserData } from "./interfaces/userData";
-import SocialIcon from "./svgs/SocialIcons";
-import TestimonialComponent from "./components/Testimonial";
+import Image from "next/image";
 import Link from "next/link";
 import SkillCategories from "./components/SkillCategories";
+import SkillIcon from "./components/SkillIcon";
+import SocialIcon from "./svgs/SocialIcons";
+import TestimonialComponent from "./components/Testimonial";
+import { UserData } from "./interfaces/userData";
+import { useState } from "react";
+import userData from "../data/userData";
 
 const hidden = false
 

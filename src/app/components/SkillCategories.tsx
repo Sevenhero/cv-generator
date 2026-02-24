@@ -1,7 +1,9 @@
-import userData from "../../data/userData";
-import { useState } from "react";
-import { Monitor, Server, Container, FlaskConical, Database } from "lucide-react";
+import { Container, Database, FlaskConical, Monitor, Server } from "lucide-react";
 import { SkillCategory, SkillWithLevel } from "../interfaces/userData";
+
+import { useState } from "react";
+import userData from "../../data/userData";
+
 const skillCategories = userData.skillCategories ?? []
 
 const levelConfig = {

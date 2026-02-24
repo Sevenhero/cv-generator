@@ -2,12 +2,13 @@ import AngularIcon from "../icons/AngularIcon";
 import CssIcon from "../icons/CSSIcon";
 import HtmlIcon from "../icons/HtmlIcon";
 import IonicIcon from "../icons/IonicIcon";
+import { JSX } from "react";
 import JavaScriptIcon from "../icons/JavascriptIcon";
 import NestJsIcon from "../icons/NestjsIcon";
 import NextJsIcon from "../icons/NextjsIcon";
-import TypeScriptIcon from "../icons/Typescript";
 import ReactIcon from "../icons/ReactIcon";
 import { Skill } from "../interfaces/userData";
+import TypeScriptIcon from "../icons/Typescript";
 
 interface SkillIconProps {
   skill: Skill;
