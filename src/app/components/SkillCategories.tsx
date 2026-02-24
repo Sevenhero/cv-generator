@@ -199,11 +199,11 @@ function SkillCategories() {
     return (
         <>
             {skillCategories && skillCategories.length > 0 && <div
-                className="px-4 py-6 sm:px-6 lg:px-8"
+                className="lg:px-8 break-before-page"
                 style={{ backgroundColor: "#f8fafc" }}
             >
                 <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-10">
+                    <div className="text-center mb-6">
                         <h2
                             className="text-3xl sm:text-2xl font-bold mb-3"
                             style={{ color: "#0f172a" }}
@@ -221,13 +221,13 @@ function SkillCategories() {
 
                     <Legend />
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
                         {skillCategories.map((category) => (
                             <CategoryCard key={category.key} category={category} />
                         ))}
                     </div>
 
-                    <div className="mt-10 text-center">
+                    <div className="mt-6 text-center">
                         <p className="text-xs" style={{ color: "#94a3b8" }}>
                             Erfahrungsjahre beziehen sich auf den professionellen Einsatz in Produktivprojekten
                         </p>

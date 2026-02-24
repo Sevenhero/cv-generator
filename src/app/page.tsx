@@ -22,7 +22,7 @@ export default function Home() {
     const experiences = userData.experience ?? [];
     return Array.from(
       new Map(
-        [...experiences].sort((a, b) => a.company.localeCompare(b.company)).map(item => [item.company, { company: item.company, url: item.companyUrl }])
+        [...experiences].map(item => [item.company, { company: item.company, url: item.companyUrl }])
       ).values()
     );
   };
@@ -126,7 +126,7 @@ export default function Home() {
                   <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
                     Firmen
                   </h2>
-                  <div className="grid gap-2 sm:grid-cols-2">
+                  <div className="grid gap-2 sm:grid-cols-2 print:grid-cols-1">
                     {getCompanyNames().map(({ company, url }, i) => (
                       <div
                         key={i}
