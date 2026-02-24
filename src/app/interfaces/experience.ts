@@ -1,8 +1,7 @@
 export interface Experience {
   title: string;
   company: string;
-  from: string;
-  till?: string;
+  workRange:string;
   description: string;
   projectName?: string;
   technologies?: string[];

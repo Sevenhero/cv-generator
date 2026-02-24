@@ -9,6 +9,9 @@ import { UserData } from "./interfaces/userData";
 import SocialIcon from "./svgs/SocialIcons";
 import TestimonialComponent from "./components/Testimonial";
 import Link from "next/link";
+import SkillCategories from "./components/SkillCategories";
+
+const hidden = true
 
 export default function Home() {
   const getFullName = () => {
@@ -19,7 +22,7 @@ export default function Home() {
     const experiences = userData.experience ?? [];
     return Array.from(
       new Map(
-        experiences.map(item => [item.company, { company: item.company, url: item.companyUrl }])
+        [...experiences].sort((a, b) => a.company.localeCompare(b.company)).map(item => [item.company, { company: item.company, url: item.companyUrl }])
       ).values()
     );
   };
@@ -36,34 +39,20 @@ export default function Home() {
         <div className="mx-auto sm:py-8 w-full max-w-[1000px]">
           <div className="grid gap-6 sm:px-8">
             <div className="col-span-12 md:col-span-4">
-              <div className="bg-white border rounded-lg p-6">
+              <div className="bg-white p-6">
                 <div className="flex gap-4 items-center sm:flex-row flex-col justify-around">
                   <div className="flex flex-col items-center self-center ">
                     <div className="relative mb-2 h-32 w-32">
-                      <Image
+                      {!hidden && <Image
                         src="/smaller.png"
                         alt="Message Image"
                         fill
                         sizes="128px"
                         className="rounded-full border object-cover object-center"
-                      />
+                      />}
                     </div>
-                    <h1 className="text-xl font-bold">{getFullName()}</h1>
+                    {!hidden && <h1 className="text-xl font-bold">{getFullName()}</h1>}
                     <p className="text-gray-700">{userData.title}</p>
-                    {/* <div className="mt-6 flex flex-wrap gap-4 justify-center">
-                    <a
-                      href="#"
-                      className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-sm"
-                    >
-                      Contact
-                    </a>
-                    <a
-                      href="#"
-                      className="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-sm"
-                    >
-                      Resume
-                    </a>
-                  </div> */}
                   </div>
                   <div className="self-center">
                     <h4 className="text-gray-700 uppercase sm:text-left text-center font-bold tracking-wider mb-2">
@@ -100,18 +89,6 @@ export default function Home() {
                 </div>
                 <hr className="my-4 border-t border-gray-300" />
                 {/* <div className="flex flex-col">
-                    <span className="text-gray-700 uppercase font-bold tracking-wider mb-2">
-                      Top-Skills
-                    </span>
-                    <ul>
-                      {user.topSkills.map((skill, index) => (
-                        <li key={index} className="mb-2">
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  </div> */}
-                <div className="flex flex-col">
                   <span className="text-gray-700 uppercase font-bold text-center tracking-wider mb-2 sm:text-left">
                     Skills
                   </span>
@@ -125,53 +102,84 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div> */}
+                {/* Über mich */}
                 {userData.description && (
-                  <>
-                    <hr className="my-4 border-t border-gray-300" />
-                    <h2 className="text-xl font-bold mb-4">Über mich:</h2>
-                    <p className="text-gray-700 whitespace-pre-wrap leading-6">
-                      {userData.description}
-                    </p>
-                  </>
+                  <section className="mt-8">
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
+                      Über mich
+                    </h2>
+                    <div className="bg-white space-y-3">
+                      {userData.description
+                        .split("\n")
+                        .filter(Boolean)
+                        .map((paragraph, i) => (
+                          <p key={i} className="text-sm text-gray-600 leading-relaxed">
+                            {paragraph}
+                          </p>
+                        ))}
+                    </div>
+                  </section>
                 )}
-                <section>
-                  <>
-                    <hr className="my-4 border-t border-gray-300"></hr>
-                    <h2 className="text-2xl font-boldmb-4">Firmen</h2>
-                  </>
-                  <ul>
-                    {getCompanyNames().map(({ company, url }, index) =>
-                      url ? (
-                        <li key={index}><Link
-                          className="text-blue-600 font-semibold"
-                          href={url}
-                          target="_blank"
+                {/* Firmen */}
+                <section className="mt-8">
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
+                    Firmen
+                  </h2>
+                  <div className="grid gap-2 sm:grid-cols-2">
+                    {getCompanyNames().map(({ company, url }, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white
+                   px-4 py-3 shadow-sm hover:shadow-md transition-shadow"
+                      >
+                        <span
+                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md
+                     bg-blue-50 text-sm font-bold text-blue-600"
                         >
-                          {company}
-                        </Link>
-                        </li>
-                      ) : (
-                        <li key={index}>
-                          <span className="font-semibold">
+                          {company.charAt(0)}
+                        </span>
+                        {url ? (
+                          <Link
+                            className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors"
+                            href={url}
+                            target="_blank"
+                          >
                             {company}
-                          </span>
-                        </li>
-                      )
-                    )}
-                  </ul>
+                          </Link>
+                        ) : (
+                          <span className="text-sm font-medium text-gray-900">{company}</span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </section>
-                <section>
-                  <>
-                    <hr className="my-4 border-t border-gray-300"></hr>
-                    <h2 className="text-2xl font-boldmb-4">Technologien</h2>
-                  </>
-                  <div>{getTechnologies().join(", ")}</div>
+                {/* Technologien */}
+                <section className="mt-8">
+                  {/* <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
+                    Technologien
+                  </h2> */}
+                  {/* <div className="rounded-lg bg-white">
+                    <div className="flex flex-wrap gap-2">
+                      {getTechnologies().sort((a, b) => a!!.localeCompare(b!!)).map((tech, i) => (
+                        <span
+                          key={i}
+                          className="inline-block rounded-md px-2.5 py-1 text-xs font-medium
+                     bg-slate-100 ring-1 ring-inset  text-blue-600 ring-blue-200/60 print:bg-transparent print:ring-blue-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div> */}
+                  <SkillCategories />
                 </section>
               </div>
-              <div className="bg-white border rounded-lg p-6">
+              <div className="bg-white p-6 page-break-before">
                 <section>
-                  <h2 className="text-2xl font-boldmb-4">Projekte</h2>
+                  <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
+                    Projekte
+                  </h2>
                   {userData.experience?.map((data, index) => (
                     <ExperienceComponent key={index} {...data} />
                   ))}
@@ -179,18 +187,16 @@ export default function Home() {
               </div>
 
               {userData.testimonials && userData.testimonials.length > 0 && (
-                <div className="bg-white border rounded-lg p-6 page-break-before">
-                  <h2 className="text-xl font-bold mb-4">Testimonials:</h2>
-                  <ul>
+                <section className="mt-4 mb-8 page-break-before">
+                  <h2 className="text-sm font-bold uppercase tracking-widest sm:px-0 px-6 text-gray-400 mb-2">
+                    Testimonials
+                  </h2>
+                  <ul className="grid gap-4 sm:grid-cols-2 print:grid-cols-1">
                     {userData.testimonials.map((testimonial, index) => (
-                      <TestimonialComponent
-                        key={index}
-                        {...testimonial}
-                        className={index % 2 !== 0 ? "sm:flex-row md:flex-row-reverse" : ""}
-                      />
+                      <TestimonialComponent key={index} {...testimonial} />
                     ))}
                   </ul>
-                </div>
+                </section>
               )}
             </div>
           </div>

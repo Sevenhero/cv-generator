@@ -8,7 +8,6 @@ export interface UserData {
   title: string;
   image?: string;
   description?: string;
-  topSkills: string[];
   skills: Skill[];
   languages: Language[];
   social?: SocialIconProps[];
@@ -16,6 +15,7 @@ export interface UserData {
   education?: Experience[];
   contact?: ContactData;
   testimonials?: Testimonial[];
+  skillCategories?: SkillCategory[];
 }
 
 export interface ContactData {
@@ -40,7 +40,20 @@ export type Skill =
 
 export interface Testimonial {
   name: string;
+  company?: string;
   jobDescription: string;
   testimonial: string;
   imgName?: string;
+}
+
+export interface SkillWithLevel {
+  name: string;
+  level?: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  yearsOfExperience?: number;
+}
+export interface SkillCategory {
+  key: string;
+  label: string;
+  icon?: string;
+  skills: SkillWithLevel[];
 }
