@@ -11,7 +11,7 @@ import TestimonialComponent from "./components/Testimonial";
 import Link from "next/link";
 import SkillCategories from "./components/SkillCategories";
 
-const hidden = true
+const hidden = false
 
 export default function Home() {
   const getFullName = () => {
