@@ -64,7 +64,6 @@ const userData: UserData = {
       "icon": "Server",
       "skills": [
         { "name": "NestJS", "level": "expert", "yearsOfExperience": 4 },
-        { "name": "Node.js", "level": "expert", "yearsOfExperience": 6 },
         { "name": "C#", "level": "advanced", "yearsOfExperience": 5 },
         { "name": "Entity Framework", "level": "advanced", "yearsOfExperience": 4 },
         { "name": "Python", "level": "beginner", "yearsOfExperience": 1 }
