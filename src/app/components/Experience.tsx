@@ -96,7 +96,7 @@ const ExperienceComponent = ({
           {addition.map((item, i) => (
             <li key={i} className="flex items-start gap-2.5 text-gray-700">
               <span
-                className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400"
+                className="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400"
                 aria-hidden="true"
               />
               <span className="leading-relaxed">{item}</span>

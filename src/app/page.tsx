@@ -36,7 +36,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-gray-100">
-        <div className="mx-auto sm:py-8 w-full max-w-[1000px]">
+        <div className="mx-auto sm:py-8 w-full max-w-250">
           <div className="grid gap-6 sm:px-8">
             <div className="col-span-12 md:col-span-4">
               <div className="bg-white p-6">

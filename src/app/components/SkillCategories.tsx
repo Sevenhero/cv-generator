@@ -202,7 +202,6 @@ function SkillCategories() {
         <>
             {skillCategories && skillCategories.length > 0 && <div
                 className="lg:px-8 break-before-page"
-                style={{ backgroundColor: "#f8fafc" }}
             >
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-6">
@@ -223,7 +222,7 @@ function SkillCategories() {
 
                     <Legend />
 
-                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
+                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {skillCategories.map((category) => (
                             <CategoryCard key={category.key} category={category} />
                         ))}
