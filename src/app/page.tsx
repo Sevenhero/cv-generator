@@ -35,7 +35,7 @@ export default function Home() {
   const [user] = useState<UserData>(userData);
   return (
     <>
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 print:bg-white">
         <div className="mx-auto sm:py-8 w-full max-w-250">
           <div className="grid gap-6 sm:px-8">
             <div className="col-span-12 md:col-span-4">
@@ -187,7 +187,7 @@ export default function Home() {
               </div>
 
               {userData.testimonials && userData.testimonials.length > 0 && (
-                <section className="mt-4 mb-8 page-break-before">
+                <section className="mt-4 mb-8">
                   <h2 className="text-sm font-bold uppercase tracking-widest sm:px-0 px-6 text-gray-400 mb-2">
                     Testimonials
                   </h2>

@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "deploy": ".\\deploy.ps1 -HostName '80.75.218.166' -User 'root'",
     "lint": "next lint"
   },
   "dependencies": {

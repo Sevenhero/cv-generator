@@ -192,7 +192,7 @@ const userData: UserData = {
       description:
         "Entwicklung und Betrieb eines Order-Management-Service (NestJS, Nextjs, MongoDB, GCloud) für den gesamten Lifecycle von Bestellungen - von Eingang bis Auslieferung. Aufbau von internen Support-Tools (React, Tailwind) zur Reduktion manueller Prozesse im Kundensupport.",
       companyUrl: "https://www.bike24.de",
-      roles: ["Fullstack"],
+      roles: ["Fullstack", "Tester"],
       addition: [
         "neu Implementation eines Legacy-Systems mit NestJS und Nextjs in form einer Microservice-Architektur",
         "CI/CD-Pipelines mit Jenkins und Terraform Build aufbauen und optimieren",
@@ -243,7 +243,7 @@ const userData: UserData = {
         "Confluence",
         "Github",
       ],
-      roles: ["Frontend"],
+      roles: ["Frontend","Tester"],
     },
     {
       title: "Fullstack Developer",
@@ -269,6 +269,7 @@ const userData: UserData = {
         "Github",
         "C#",
       ],
+       roles: ["Fullstack","Tester"],
     },
   ],
   testimonials: [

@@ -92,7 +92,7 @@ const ExperienceComponent = ({
 
       {/* Aufgaben */}
       {addition && addition.length > 0 && (
-        <ul className="mt-4 grid gap-1.5 text-sm">
+        <ul className="mt-4 grid gap-1 text-sm">
           {addition.map((item, i) => (
             <li key={i} className="flex items-start gap-2.5 text-gray-700">
               <span
@@ -108,7 +108,7 @@ const ExperienceComponent = ({
       {/* Tech & Rollen */}
       {((technologies && technologies.length > 0) ||
         (roles && roles.length > 0)) && (
-          <div className="mt-4 pt-4 border-t border-gray-100 space-y-2.5 print:border-gray-200">
+          <div className="mt-4 space-y-2.5">
             {technologies && technologies.length > 0 && (
               <div className="flex flex-wrap items-center gap-1.5">
                 <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mr-1">
