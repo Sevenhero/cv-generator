@@ -175,7 +175,7 @@ export default function Home() {
                   <SkillCategories />
                 </section>
               </div>
-              <div className="bg-white p-6">
+              <div className="bg-white p-6 page-break-before">
                 <section>
                   <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
                     Projekte
