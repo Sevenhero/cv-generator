@@ -28,7 +28,7 @@ function Assert-CommandExists([string]$cmd) {
 
 Assert-CommandExists "ssh"
 Assert-CommandExists "scp"
-Assert-CommandExists "npm"
+Assert-CommandExists "bun"
 
 # SSH Argumente dynamisch aufbauen (Splatting)
 $sshArgs = @()
@@ -38,8 +38,10 @@ if ([System.String]::IsNullOrWhiteSpace($KeyPath) -eq $false) {
 
 # 1. Build
 Write-Host "==> Build (static export)..." -ForegroundColor Cyan
-npm ci
-npm run build
+# npm ci
+bun install --frozen-lockfile
+# npm run build
+bun run build
 
 if (-not (Test-Path ".\out")) {
   throw "Ordner '.\out' fehlt. Stellen Sie sicher, dass in der Next.js Config 'output: export' gesetzt ist."
