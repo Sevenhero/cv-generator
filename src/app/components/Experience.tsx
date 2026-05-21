@@ -12,7 +12,8 @@ const ExperienceComponent = ({
   addition,
   roles,
   projectName,
-}: Experience) => {
+  className
+}: Experience & { className: string }) => {
   const isActive = !workRange || workRange.toLowerCase().includes("heute");
 
   const renderLink = (url: string | undefined, label: string | undefined) => {
@@ -53,7 +54,7 @@ const ExperienceComponent = ({
     <div
       className={`mt-6 rounded-lg bg-white p-5 sm:p-6
                    shadow-sm
-                   print:shadow-none print:border-gray-300 print:p-4`}
+                   print:shadow-none print:border-gray-300 print:p-4 ${className}`}
     >
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">

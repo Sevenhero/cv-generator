@@ -116,7 +116,7 @@ function Legend() {
     );
 }
 
-function CategoryCard({ category }: { category: SkillCategory }) {
+function CategoryCard({ category, className = "" }: { category: SkillCategory, className: string }) {
     const [hovered, setHovered] = useState(false);
     const IconComponent = category.icon && category.icon in iconMap
         ? iconMap[category.icon as IconKey]
@@ -131,7 +131,7 @@ function CategoryCard({ category }: { category: SkillCategory }) {
 
     return (
         <div
-            className="rounded-2xl p-6 transition-all duration-300 ease-out"
+            className={`rounded-2xl p-6 transition-all duration-300 ease-out ${className}`}
             style={{
                 backgroundColor: "#ffffff",
                 border: "1px solid",
@@ -201,7 +201,7 @@ function SkillCategories() {
     return (
         <>
             {skillCategories && skillCategories.length > 0 && <div
-                className="lg:px-8 break-before-page"
+                className="lg:px-8"
             >
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-6">
@@ -224,7 +224,7 @@ function SkillCategories() {
 
                     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {skillCategories.map((category) => (
-                            <CategoryCard key={category.key} category={category} />
+                            <CategoryCard className="no-print-break" key={category.key} category={category} />
                         ))}
                     </div>
 

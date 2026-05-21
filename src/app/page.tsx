@@ -122,7 +122,7 @@ export default function Home() {
                   </section>
                 )}
                 {/* Firmen */}
-                <section className="mt-8">
+                <section className="mt-8 print:hidden">
                   <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
                     Firmen
                   </h2>
@@ -175,13 +175,13 @@ export default function Home() {
                   <SkillCategories />
                 </section>
               </div>
-              <div className="bg-white p-6 page-break-before">
+              <div className="bg-white p-6">
                 <section>
                   <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
                     Projekte
                   </h2>
                   {userData.experience?.map((data, index) => (
-                    <ExperienceComponent key={index} {...data} />
+                    <ExperienceComponent className="no-print-break" key={index} {...data} />
                   ))}
                 </section>
               </div>
