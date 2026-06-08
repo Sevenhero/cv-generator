@@ -9,6 +9,7 @@ const userData: UserData = {
   contact: {
     email: "kernke.dev@gmail.com",
     phone: "+4917682949586",
+    city: "Neuwied",
   },
   skills: [
     "React",
@@ -35,10 +36,10 @@ const userData: UserData = {
       url: "https://github.com/Sevenhero",
       social: "github",
     },
-    {
-      email: "kernke.dev@gmail.com",
-      social: "email",
-    },
+    // {
+    //   email: "kernke.dev@gmail.com",
+    //   social: "email",
+    // },
     // {
     //   phone: "+4917682949586",
     //   social: "phone",
@@ -243,7 +244,7 @@ const userData: UserData = {
         "Confluence",
         "Github",
       ],
-      roles: ["Frontend","Tester"],
+      roles: ["Frontend", "Tester"],
     },
     {
       title: "Fullstack Developer",
@@ -269,7 +270,7 @@ const userData: UserData = {
         "Github",
         "C#",
       ],
-       roles: ["Fullstack","Tester"],
+      roles: ["Fullstack", "Tester"],
     },
   ],
   testimonials: [

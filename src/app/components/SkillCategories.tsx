@@ -1,51 +1,42 @@
 import { Container, Database, FlaskConical, Monitor, Server } from "lucide-react";
-import { SkillCategory, SkillWithLevel } from "../interfaces/userData";
-
-import { useState } from "react";
+import { SkillWithLevel } from "../interfaces/userData";
 import userData from "../../data/userData";
 
-const skillCategories = userData.skillCategories ?? []
+const skillCategories = userData.skillCategories ?? [];
 
-const levelConfig = {
+const levelConfig: Record<string, { dotColor: string; badgeBg: string; badgeBorder: string; label: string }> = {
     expert: {
         dotColor: "#10b981",
         badgeBg: "#d1fae5",
-        badgeBgHover: "#a7f3d0",
         badgeBorder: "rgba(16,185,129,0.2)",
-        badgeBorderHover: "rgba(16,185,129,0.4)",
         label: "Experte",
     },
     advanced: {
         dotColor: "#3b82f6",
         badgeBg: "#dbeafe",
-        badgeBgHover: "#bfdbfe",
         badgeBorder: "rgba(59,130,246,0.2)",
-        badgeBorderHover: "rgba(59,130,246,0.4)",
         label: "Fortgeschritten",
     },
     intermediate: {
         dotColor: "#f59e0b",
         badgeBg: "#fff7ed",
-        badgeBgHover: "#ffedd5",
         badgeBorder: "rgba(245,158,11,0.2)",
-        badgeBorderHover: "rgba(245,158,11,0.4)",
         label: "Mittel",
     },
     beginner: {
         dotColor: "#94a3b8",
         badgeBg: "#f1f5f9",
-        badgeBgHover: "#e2e8f0",
         badgeBorder: "rgba(100,116,139,0.15)",
-        badgeBorderHover: "rgba(100,116,139,0.3)",
         label: "Einsteiger",
     },
 };
 
 const iconMap = { Monitor, Server, Container, FlaskConical, Database };
-type IconKey = keyof typeof iconMap;
 
-function ColorDot({ level = "beginner", size = 8 }: { level?: SkillWithLevel['level'], size?: number }) {
-    const config = levelConfig[level];
+type SkillCategory = typeof skillCategories[number];
+
+function ColorDot({ level = "beginner", size = 8 }: { level?: SkillWithLevel['level']; size?: number }) {
+    const config = levelConfig[level as string] ?? levelConfig.beginner;
     return (
         <span
             aria-label={config.label}
@@ -58,128 +49,64 @@ function ColorDot({ level = "beginner", size = 8 }: { level?: SkillWithLevel['le
                 boxShadow: `0 0 5px ${config.dotColor}44`,
                 flexShrink: 0,
             }}
+            className="print:!bg-opacity-100"
         />
     );
 }
 
 function SkillBadge({ skill }: { skill: SkillWithLevel }) {
-    const [hovered, setHovered] = useState(false);
     const config = levelConfig[skill.level ?? "beginner"];
-
     return (
         <span
-            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm transition-all duration-200 cursor-default"
+            role="listitem"
+            aria-label={`${skill.name}: ${config.label}`}
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm border no-print-break print:ring print:ring-gray-300"
             style={{
-                backgroundColor: hovered ? config.badgeBgHover : config.badgeBg,
-                border: "1px solid",
-                borderColor: hovered ? config.badgeBorderHover : config.badgeBorder,
+                backgroundColor: config.badgeBg,
+                borderColor: config.badgeBorder,
             }}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
         >
             <ColorDot level={skill.level} />
-            <span className="font-medium" style={{ color: "#334155" }}>
-                {skill.name}
-            </span>
-            <span className="text-xs font-normal" style={{ color: "#64748b" }}>
-                {skill.yearsOfExperience} J.
+            <span className="font-medium whitespace-nowrap">{skill.name}</span>
+            <span className="text-xs font-normal text-slate-500">
+                {skill.yearsOfExperience ?? 0} J.
             </span>
         </span>
     );
 }
 
 function LegendItem({ level }: { level: SkillWithLevel['level'] }) {
-    const config = levelConfig[level ?? "beginner"];
+    const config = levelConfig[level as string];
     return (
-        <span className="inline-flex items-center gap-1.5">
+        <span className="inline-flex items-center gap-1.5" aria-label={config.label}>
             <ColorDot level={level} size={7} />
-            <span className="text-xs font-medium" style={{ color: "#64748b" }}>
-                {config.label}
-            </span>
+            <span className="text-xs font-medium text-slate-600">{config?.label}</span>
         </span>
     );
 }
 
-function Legend() {
-    return (
-        <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8 px-4">
-            <span
-                className="text-xs font-semibold uppercase tracking-widest mr-1"
-                style={{ color: "#94a3b8" }}
-            >
-                Erfahrungsstufe
-            </span>
-            {Object.keys(levelConfig).map((level) => (
-                <LegendItem key={level} level={level as SkillWithLevel['level']} />
-            ))}
-        </div>
-    );
-}
-
-function CategoryCard({ category, className = "" }: { category: SkillCategory, className: string }) {
-    const [hovered, setHovered] = useState(false);
-    const IconComponent = category.icon && category.icon in iconMap
-        ? iconMap[category.icon as IconKey]
-        : null;
-
-    const sortOrder = { expert: 0, advanced: 1, intermediate: 2, beginner: 3 };
+function CategoryCard({ category }: { category: SkillCategory }) {
+    const IconKey = category.icon as keyof typeof iconMap;
+    const IconComponent = category.icon ? (iconMap[IconKey] ?? Monitor) : Monitor;
+    const sortOrder: Record<string, number> = { expert: 0, advanced: 1, intermediate: 2, beginner: 3 };
     const sortedSkills = [...category.skills].sort(
-        (a, b) =>
-            sortOrder[a.level ?? "beginner"] - sortOrder[b.level ?? "beginner"] ||
-            (b.yearsOfExperience ?? 0) - (a.yearsOfExperience ?? 0)
+        (a, b) => (sortOrder[a.level ?? "beginner"] - sortOrder[b.level ?? "beginner"]) || ((b.yearsOfExperience ?? 0) - (a.yearsOfExperience ?? 0))
     );
 
     return (
-        <div
-            className={`rounded-2xl p-6 transition-all duration-300 ease-out ${className}`}
-            style={{
-                backgroundColor: "#ffffff",
-                border: "1px solid",
-                borderColor: hovered ? "rgba(59,130,246,0.25)" : "#e2e8f0",
-                transform: hovered ? "translateY(-4px)" : "translateY(0)",
-                boxShadow: hovered
-                    ? "0 20px 40px rgba(59,130,246,0.08), 0 8px 16px rgba(0,0,0,0.06)"
-                    : "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)",
-            }}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-        >
+        <div role="region" aria-label={`Skills-Kategorie: ${category.label}`} className="rounded-2xl p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow no-print-break">
             <div className="flex items-center gap-3 mb-5">
-                <div
-                    className="flex items-center justify-center w-10 h-10 rounded-xl transition-colors duration-300"
-                    style={{
-                        backgroundColor: hovered ? "#eff6ff" : "#f1f5f9",
-                    }}
-                >
-                    {IconComponent && (
-                        <IconComponent
-                            size={20}
-                            style={{
-                                color: hovered ? "#3b82f6" : "#64748b",
-                                transition: "color 0.3s ease",
-                            }}
-                            strokeWidth={1.8}
-                        />
-                    )}
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-slate-50 text-slate-500 shrink-0">
+                    <IconComponent size={20} strokeWidth={1.8} />
                 </div>
-                <h3
-                    className="text-lg font-semibold tracking-wide transition-colors duration-300"
-                    style={{ color: "#1e293b" }}
-                >
+                <h3 className="text-lg font-semibold tracking-wide truncate" style={{ color: "#1e293b" }}>
                     {category.label}
                 </h3>
-                <span
-                    className="ml-auto text-xs font-semibold rounded-full px-2.5 py-0.5"
-                    style={{
-                        color: "#1e293b",
-                        backgroundColor: "#e2e8f0",
-                    }}
-                >
+                <span className="ml-auto text-xs font-semibold rounded-full bg-gray-100 px-2.5 py-0.5 text-gray-700">
                     {category.skills.length}
                 </span>
             </div>
-
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2" role="list">
                 {sortedSkills.map((skill) => (
                     <SkillBadge key={skill.name} skill={skill} />
                 ))}
@@ -189,53 +116,43 @@ function CategoryCard({ category, className = "" }: { category: SkillCategory, c
 }
 
 function SkillCategories() {
-    const totalSkills = skillCategories.reduce(
-        (sum, cat) => sum + cat.skills.length,
-        0
-    );
+    const totalSkills = skillCategories.reduce((sum, cat) => sum + cat.skills.length, 0);
     const expertCount = skillCategories.reduce(
         (sum, cat) => sum + cat.skills.filter((s) => s.level === "expert").length,
         0
     );
 
+    if (totalSkills === 0) return null;
+
     return (
-        <>
-            {skillCategories && skillCategories.length > 0 && <div
-                className="lg:px-8"
-            >
-                <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-6">
-                        <h2
-                            className="text-3xl sm:text-2xl font-bold mb-3"
-                            style={{ color: "#0f172a" }}
-                        >
-                            Fähigkeiten & Technologien
-                        </h2>
-                        <p
-                            className="text-sm max-w-lg mx-auto"
-                            style={{ color: "#64748b" }}
-                        >
-                            {totalSkills} Technologien in {skillCategories.length} Kategorien
-                            — {expertCount} auf Experten-Niveau
-                        </p>
-                    </div>
+        <div className="mt-8">
+            <h2 className="text-xs font-extrabold uppercase tracking-[0.15em] text-gray-400 mb-4">
+                Fähigkeiten & Technologien
+            </h2>
 
-                    <Legend />
+            <p className="text-sm max-w-lg text-gray-500 mb-6 print:text-gray-600">
+                {totalSkills} Technologien in {skillCategories.length} Kategorien — {expertCount} auf Experten-Niveau
+            </p>
 
-                    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                        {skillCategories.map((category) => (
-                            <CategoryCard className="no-print-break" key={category.key} category={category} />
-                        ))}
-                    </div>
+            {/* Legend */}
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 no-print-break bg-gray-50 rounded-lg p-3 border border-gray-100" role="navigation" aria-label="Legende für Erfahrungsstufen">
 
-                    <div className="mt-6 text-center">
-                        <p className="text-xs" style={{ color: "#94a3b8" }}>
-                            Erfahrungsjahre beziehen sich auf den professionellen Einsatz in Produktivprojekten
-                        </p>
-                    </div>
-                </div>
-            </div>}
-        </>
+                {Object.keys(levelConfig).map((level) => (
+                    <LegendItem key={level} level={level as SkillWithLevel['level']} />
+                ))}
+            </div>
+
+            {/* Grid */}
+            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 page-break-before">
+                {skillCategories.map((category) => (
+                    <CategoryCard key={category.key} category={category} />
+                ))}
+            </div>
+
+            <p className="mt-4 text-xs text-gray-400 print:text-gray-500 italic">
+                Erfahrungsjahre beziehen sich auf den professionellen Einsatz in Produktivprojekten
+            </p>
+        </div>
     );
 }
 

@@ -1,135 +1,170 @@
-import { Experience } from "../interfaces/experience";
+import { Experience } from "../interfaces/userData";
 import Link from "next/link";
+import { BookOpen, Briefcase, Tags, Users } from "lucide-react";
 
-const ExperienceComponent = ({
+interface ExperienceCardProps extends Omit<Experience, "roles" | "technologies"> {
+  roles?: string[];
+  technologies?: string[];
+  className?: string;
+}
+
+const isActiveRange = (workRange?: string): boolean =>
+  workRange ? /heute|present|now/i.test(workRange) : false;
+
+const formatRange = (range?: string): string => {
+  if (!range) return "Unbekannt";
+  return range.replace(/bis|–/gu, "–");
+};
+
+const ExperienceCard = ({
+  className,
+  description,
   title,
   company,
-  description,
   workRange,
+  projectName,
   projectUrl,
   companyUrl,
-  technologies,
-  addition,
-  roles,
-  projectName,
-  className
-}: Experience & { className: string }) => {
-  const isActive = !workRange || workRange.toLowerCase().includes("heute");
-
-  const renderLink = (url: string | undefined, label: string | undefined) => {
-    if (!label) return null;
-    return url ? (
-      <Link
-        className="text-blue-600 hover:text-blue-700 font-medium underline underline-offset-2
-                   decoration-blue-300 hover:decoration-blue-500 transition-all"
-        href={url}
-        target="_blank"
-      >
-        {label}
-      </Link>
-    ) : (
-      <span className="font-medium">{label}</span>
-    );
-  };
-
-  const renderTags = (items: string[], variant: "tech" | "role" = "tech") => {
-    const styles = {
-      tech: "bg-blue-50 text-blue-600 ring-blue-200/60 print:bg-transparent print:ring-blue-300",
-      role: "bg-green-50 text-green-600 ring-green-200/60 print:bg-transparent print:ring-green-300",
-    };
-
-    return items.map((item, i) => (
-      <span
-        key={i}
-        className={`inline-block px-2.5 py-0.5 text-xs font-medium rounded-md
-                     ring-1 ring-inset ${styles[variant]}
-                     print:px-1 print:py-0`}
-      >
-        {item}
-      </span>
-    ));
-  };
+  technologies = [],
+  roles = [],
+  addition = [],
+}: ExperienceCardProps) => {
+  const active = isActiveRange(workRange);
+  const hasExtraLinks = !!company || !!projectName;
 
   return (
-    <div
-      className={`mt-6 rounded-lg bg-white p-5 sm:p-6
-                   shadow-sm
-                   print:shadow-none print:border-gray-300 print:p-4 ${className}`}
+    <article
+      className={
+        "mt-6 rounded-xl bg-white p-5 sm:p-6 shadow-sm hover:shadow-md" +
+        " transition-shadow duration-200 no-print-break" +
+        " print:shadow-none print:border print:border-gray-300 print:p-4" +
+        (className ? ` ${className}` : "")
+      }
     >
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-        <div className="space-y-1">
-          <h3 className="text-lg font-bold text-gray-900 leading-snug tracking-tight">
+        <div className="space-y-1 min-w-0">
+          <h3 className="text-lg font-bold text-gray-900 leading-snug tracking-tight truncate">
             {title}
           </h3>
-          <div className="text-sm text-gray-500 flex items-center flex-wrap gap-x-1">
-            {renderLink(companyUrl, company)}
-            {projectName && <span>-</span>}
-            {renderLink(projectUrl, projectName)}
-          </div>
+
+          {hasExtraLinks && (
+            <div className="flex items-center flex-wrap gap-x-2 text-sm text-gray-500">
+              {companyUrl && company ? (
+                <Link
+                  href={companyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 font-medium underline-offset-2 decoration-blue-300 hover:decoration-blue-500 transition-colors cursor-pointer print:inline print:text-gray-700 print:no-underline"
+                >
+                  {company}
+                </Link>
+              ) : company ? (
+                <span className="font-medium">{company}</span>
+              ) : null}
+            </div>
+          )}
+
+          {projectUrl && projectName ? (
+            <div className="flex items-center gap-1 text-sm">
+              <BookOpen className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+              <Link
+                href={projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 font-medium underline-offset-2 decoration-blue-300 hover:decoration-blue-500 transition-colors cursor-pointer print:inline print:text-gray-700 print:no-underline"
+              >
+                {projectName}
+              </Link>
+            </div>
+          ) : null}
         </div>
 
         <span
-          className={`inline-flex items-center gap-1.5 text-xs font-semibold whitespace-nowrap
-                       rounded-full px-3 py-1 shrink-0 self-start
-                       ${isActive
+          className={
+            "inline-flex items-center gap-1.5 text-xs font-semibold whitespace-nowrap" +
+            " rounded-full px-3 py-1 shrink-0 self-start" +
+            (active
               ? "bg-emerald-50 text-emerald-700 ring-1 ring-inset ring-emerald-200"
-              : "bg-gray-100 text-gray-500 ring-1 ring-inset ring-gray-200"
-            }`}
+              : "bg-gray-100 text-gray-500 ring-1 ring-inset ring-gray-200") +
+            " print:bg-transparent print:text-gray-600 print:ring-0"
+          }
         >
-          {isActive && (
+          {active && (
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
           )}
-          {workRange}
+          {formatRange(workRange)}
         </span>
       </div>
 
       {/* Description */}
-      {description && (
-        <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-          {description}
-        </p>
-      )}
+      {description ? (
+        <p className="mt-3 text-sm text-gray-600 leading-relaxed">{description}</p>
+      ) : null}
 
-      {/* Aufgaben */}
-      {addition && addition.length > 0 && (
-        <ul className="mt-4 grid gap-1 text-sm">
+      {/* Aufgaben / bullet list */}
+      {addition.length > 0 && (
+        <ul className="mt-4 grid gap-1.5">
           {addition.map((item, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-gray-700">
-              <span
-                className="mt-1.75 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400"
-                aria-hidden="true"
-              />
+            <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 flex-shrink-0" />
               <span className="leading-relaxed">{item}</span>
             </li>
           ))}
         </ul>
       )}
 
-      {/* Tech & Rollen */}
-      {((technologies && technologies.length > 0) ||
-        (roles && roles.length > 0)) && (
-          <div className="mt-4 space-y-2.5">
-            {technologies && technologies.length > 0 && (
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mr-1">
-                  Tech
-                </span>
-                {renderTags(technologies, "tech")}
-              </div>
-            )}
-            {roles && roles.length > 0 && (
-              <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mr-1">
-                  Rollen
-                </span>
-                {renderTags(roles, "role")}
-              </div>
-            )}
-          </div>
-        )}
-    </div>
+      {/* Rollen */}
+      {roles.length > 0 && (
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          <Users className="h-3 w-3 text-gray-400 flex-shrink-0" />
+          <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mr-1">
+            Rollen
+          </span>
+          {roles.map((role, i) => (
+            <span
+              key={i}
+              className="inline-block rounded-md px-2.5 py-1 text-xs font-medium bg-green-50 text-green-700 ring-1 ring-inset ring-green-200/60"
+              style={{
+                WebkitPrintColorAdjust: 'exact',
+                printColorAdjust: 'exact',
+                backgroundColor: '#dcfce7',
+                color: '#1e3a5f',
+                borderColor: '#bbf7d0' as any,
+              }}
+            >
+              {role}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Technologien */}
+      {technologies.length > 0 && (
+        <div className="mt-2 flex flex-wrap items-center gap-1.5">
+          <Tags className="h-3 w-3 text-gray-400 flex-shrink-0" />
+          <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mr-1">
+            Tech
+          </span>
+          {technologies.map((tech, i) => (
+            <span
+              key={i}
+              className="inline-block rounded-md px-2.5 py-1 text-xs font-medium bg-slate-50 text-blue-600 ring-1 ring-inset ring-blue-200/60"
+              style={{
+                WebkitPrintColorAdjust: 'exact',
+                printColorAdjust: 'exact',
+                backgroundColor: '#f1f5f9',
+                color: '#1e40af',
+                borderColor: '#bfdbfe' as any,
+              }}
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      )}
+    </article>
   );
 };
 
-export default ExperienceComponent;
+export default ExperienceCard;

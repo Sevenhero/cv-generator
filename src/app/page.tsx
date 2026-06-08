@@ -10,6 +10,7 @@ import TestimonialComponent from "./components/Testimonial";
 import { UserData } from "./interfaces/userData";
 import { useState } from "react";
 import userData from "../data/userData";
+import Contact from "./components/Contact";
 
 const hidden = false
 
@@ -58,7 +59,7 @@ export default function Home() {
                     <h4 className="text-gray-700 uppercase sm:text-left text-center font-bold tracking-wider mb-2">
                       Kontakt
                     </h4>
-                    {/* <Contact  {...user.contact} /> */}
+                    <Contact {...user.contact} />
                     <div className="flex items-center gap-6 flex-wrap">
                       {userData.social?.map(
                         ({ social, email, url, phone }, index) => (
