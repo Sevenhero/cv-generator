@@ -1,6 +1,7 @@
+import { BookOpen, Briefcase, Tags, Users } from "lucide-react";
+
 import { Experience } from "../interfaces/userData";
 import Link from "next/link";
-import { BookOpen, Briefcase, Tags, Users } from "lucide-react";
 
 interface ExperienceCardProps extends Omit<Experience, "roles" | "technologies"> {
   roles?: string[];
@@ -67,7 +68,7 @@ const ExperienceCard = ({
 
           {projectUrl && projectName ? (
             <div className="flex items-center gap-1 text-sm">
-              <BookOpen className="h-3.5 w-3.5 text-gray-400 flex-shrink-0" />
+              <BookOpen className="h-3.5 w-3.5 text-gray-400 shrink-0" />
               <Link
                 href={projectUrl}
                 target="_blank"
@@ -107,7 +108,7 @@ const ExperienceCard = ({
         <ul className="mt-4 grid gap-1.5">
           {addition.map((item, i) => (
             <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
               <span className="leading-relaxed">{item}</span>
             </li>
           ))}
@@ -117,7 +118,7 @@ const ExperienceCard = ({
       {/* Rollen */}
       {roles.length > 0 && (
         <div className="mt-3 flex flex-wrap items-center gap-1.5">
-          <Users className="h-3 w-3 text-gray-400 flex-shrink-0" />
+          <Users className="h-3 w-3 text-gray-400 shrink-0" />
           <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mr-1">
             Rollen
           </span>
@@ -142,20 +143,20 @@ const ExperienceCard = ({
       {/* Technologien */}
       {technologies.length > 0 && (
         <div className="mt-2 flex flex-wrap items-center gap-1.5">
-          <Tags className="h-3 w-3 text-gray-400 flex-shrink-0" />
+          <Tags className="h-3 w-3 text-gray-400 shrink-0" />
           <span className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mr-1">
             Tech
           </span>
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="inline-block rounded-md px-2.5 py-1 text-xs font-medium bg-slate-50 text-blue-600 ring-1 ring-inset ring-blue-200/60"
+              className="inline-block rounded-md px-2.5 py-1 text-xs font-semibold text-blue-700 ring-blue-200 ring-1 ring-inset"
               style={{
                 WebkitPrintColorAdjust: 'exact',
                 printColorAdjust: 'exact',
-                backgroundColor: '#f1f5f9',
-                color: '#1e40af',
-                borderColor: '#bfdbfe' as any,
+                backgroundColor: '#dbeafe',
+                color: '#1e3a5f',
+                // borderColor: 'rgba(59,130,246,0.2)' as any,
               }}
             >
               {tech}

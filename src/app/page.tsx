@@ -1,5 +1,6 @@
 "use client";
 
+import Contact from "./components/Contact";
 import ExperienceComponent from "./components/Experience";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +11,6 @@ import TestimonialComponent from "./components/Testimonial";
 import { UserData } from "./interfaces/userData";
 import { useState } from "react";
 import userData from "../data/userData";
-import Contact from "./components/Contact";
 
 const hidden = false
 
@@ -27,11 +27,6 @@ export default function Home() {
       ).values()
     );
   };
-
-
-  const getTechnologies = () => {
-    return Array.from(new Set(((userData.experience ?? []).map(item => item.technologies).flatMap(tech => tech))))
-  }
 
   const [user] = useState<UserData>(userData);
   return (

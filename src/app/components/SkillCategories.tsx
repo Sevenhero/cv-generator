@@ -1,4 +1,5 @@
 import { Container, Database, FlaskConical, Monitor, Server } from "lucide-react";
+
 import { SkillWithLevel } from "../interfaces/userData";
 import userData from "../../data/userData";
 
@@ -49,7 +50,7 @@ function ColorDot({ level = "beginner", size = 8 }: { level?: SkillWithLevel['le
                 boxShadow: `0 0 5px ${config.dotColor}44`,
                 flexShrink: 0,
             }}
-            className="print:!bg-opacity-100"
+            className="print:bg-opacity-100!"
         />
     );
 }
