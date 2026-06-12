@@ -125,7 +125,7 @@ const ExperienceCard = ({
           {roles.map((role, i) => (
             <span
               key={i}
-              className="inline-block rounded-md px-2.5 py-1 text-xs font-medium bg-green-50 text-green-700 ring-1 ring-inset ring-green-200/60"
+              className="inline-block rounded-md px-3 py-1 text-xs font-medium bg-green-50 text-green-700 ring-1 ring-inset ring-green-200/60"
               style={{
                 WebkitPrintColorAdjust: 'exact',
                 printColorAdjust: 'exact',
@@ -150,7 +150,7 @@ const ExperienceCard = ({
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="inline-block rounded-md px-2.5 py-1 text-xs font-semibold text-blue-700 ring-blue-200 ring-1 ring-inset"
+              className="inline-block rounded-md px-3 py-1 text-xs font-medium text-blue-700 ring-blue-200 ring-1 ring-inset"
               style={{
                 WebkitPrintColorAdjust: 'exact',
                 printColorAdjust: 'exact',
