@@ -3,7 +3,10 @@ import { BookOpen, Briefcase, Tags, Users } from "lucide-react";
 import { Experience } from "../interfaces/userData";
 import Link from "next/link";
 
-interface ExperienceCardProps extends Omit<Experience, "roles" | "technologies"> {
+interface ExperienceCardProps extends Omit<
+  Experience,
+  "roles" | "technologies"
+> {
   roles?: string[];
   technologies?: string[];
   className?: string;
@@ -100,14 +103,19 @@ const ExperienceCard = ({
 
       {/* Description */}
       {description ? (
-        <p className="mt-3 text-sm text-gray-600 leading-relaxed">{description}</p>
+        <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+          {description}
+        </p>
       ) : null}
 
       {/* Aufgaben / bullet list */}
       {addition.length > 0 && (
         <ul className="mt-4 grid gap-1.5">
           {addition.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+            <li
+              key={i}
+              className="flex items-start gap-2 text-sm text-gray-700"
+            >
               <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-400 shrink-0" />
               <span className="leading-relaxed">{item}</span>
             </li>
@@ -125,13 +133,13 @@ const ExperienceCard = ({
           {roles.map((role, i) => (
             <span
               key={i}
-              className="inline-block rounded-md px-3 py-1 text-xs font-medium bg-green-50 text-green-700 ring-1 ring-inset ring-green-200/60"
+              className="inline-block rounded-md px-3 py-1 text-xs font-medium bg-green-50 ring-1 ring-inset ring-green-200/60"
               style={{
-                WebkitPrintColorAdjust: 'exact',
-                printColorAdjust: 'exact',
-                backgroundColor: '#dcfce7',
-                color: '#1e3a5f',
-                borderColor: '#bbf7d0' as any,
+                WebkitPrintColorAdjust: "exact",
+                printColorAdjust: "exact",
+                backgroundColor: "#dcfce7",
+                color: "#1e3a5f",
+                borderColor: "#bbf7d0" as any,
               }}
             >
               {role}
@@ -150,12 +158,12 @@ const ExperienceCard = ({
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="inline-block rounded-md px-3 py-1 text-xs font-medium text-blue-700 ring-blue-200 ring-1 ring-inset"
+              className="inline-block rounded-md px-3 py-1 text-xs font-medium ring-blue-200 ring-1 ring-inset"
               style={{
-                WebkitPrintColorAdjust: 'exact',
-                printColorAdjust: 'exact',
-                backgroundColor: '#dbeafe',
-                color: '#1e3a5f',
+                WebkitPrintColorAdjust: "exact",
+                printColorAdjust: "exact",
+                backgroundColor: "#dbeafe",
+                color: "#1e3a5f",
                 // borderColor: 'rgba(59,130,246,0.2)' as any,
               }}
             >
