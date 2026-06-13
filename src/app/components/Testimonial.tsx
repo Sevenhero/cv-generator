@@ -25,7 +25,7 @@ const TestimonialCard = ({
   return (
     <li
       className={`relative rounded-xl bg-white p-5 sm:p-6 shadow-sm hover:shadow-md 
-                   transition-shadow duration-200 list-none no-print-break
+                   transition-shadow duration-200 list-none avoid-break
                    print:shadow-none print:border print:border-gray-300 print:p-4 ${className}`}
     >
       {/* Quote icon */}
@@ -53,7 +53,7 @@ const TestimonialCard = ({
           />
         ) : (
           <span
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full ring-2 ring-gray-100 bg-gradient-to-br from-blue-50 to-indigo-100 text-sm font-bold text-primary"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full ring-2 ring-gray-100 bg-linear-to-br from-blue-50 to-indigo-100 text-sm font-bold text-primary"
             aria-label={name}
           >
             {getInitials(name)}

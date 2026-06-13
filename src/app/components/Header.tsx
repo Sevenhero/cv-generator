@@ -10,16 +10,16 @@ export default function HeaderComponent() {
   const [user] = useState<UserData>(userData);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 shadow-lg print:rounded-none print:bg-white/30 print:shadow-none">
+    <div className="relative overflow-hidden rounded-2xl bg-linear-to-br from-blue-500 to-cyan-600 shadow-lg print:rounded-none print:bg-white/30 print:shadow-none">
       {/* Subtle pattern dots */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
 
       <div className="relative z-10 flex flex-col sm:flex-row overflow-hidden rounded-2xl">
 
         {/* LEFT: photo + name strip */}
-        <div className="shrink-0 bg-white/15 grid place-items-center w-full px-5 py-6 sm:w-[240px] sm:py-8 md:w-[280px] md:px-6">
+        <div className="shrink-0 bg-white/15 grid place-items-center w-full px-5 py-6 sm:w-60 sm:py-8 md:w-70 md:px-6">
           <div className="flex flex-col items-center text-center">
-            <div className="relative mb-3 h-28 w-28 overflow-hidden rounded-full border-[4px] border-white shadow-xl print:border-gray-300 print:shadow-none" style={{ padding: 0 }}>
+            <div className="relative mb-3 h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-xl print:border-gray-300 print:shadow-none" style={{ padding: 0 }}>
               {!hidden && (
                 <>
                   <Image
@@ -88,7 +88,7 @@ export default function HeaderComponent() {
               {user.languages.map(({ language, level }, index) => (
                 <li key={index} className="flex items-center gap-x-3">
                   {/* Color dot */}
-                  <span className="inline-block h-[6px] w-[6px] shrink-0 rounded-full bg-gradient-to-br from-blue-400 to-cyan-500 shadow-sm" />
+                  <span className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-linear-to-br from-blue-400 to-cyan-500 shadow-sm" />
                   <div className="min-w-0 text-sm sm:text-base">
                     <span className="font-medium text-gray-900">{language}</span>
                     {level && (

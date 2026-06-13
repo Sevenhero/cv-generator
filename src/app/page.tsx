@@ -68,7 +68,7 @@ function parseSingleDate(value: string): number {
 }
 
 function aggregateEmployers(): AggregatedEntry[] {
-  type ExperienceEntry = (typeof userData.experience);
+  type ExperienceEntry = typeof userData.experience;
 
   const parseRange = (
     workRange: string | null | undefined,
@@ -208,7 +208,7 @@ export default function Home() {
                   <SkillCategories />
                 </section>
 
-                         {/* Werdegang — career timeline */}
+                {/* Werdegang — career timeline */}
                 <section className="mt-8">
                   <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-3">
                     Beruflicher Weg
@@ -275,7 +275,7 @@ export default function Home() {
                   </h2>
                   {userData.experience?.map((data, index) => (
                     <ExperienceComponent
-                      className="no-print-break"
+                      className="avoid-break"
                       key={index}
                       {...data}
                     />

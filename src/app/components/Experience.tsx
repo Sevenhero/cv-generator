@@ -40,7 +40,7 @@ const ExperienceCard = ({
     <article
       className={
         "mt-6 rounded-xl bg-white p-5 sm:p-6 shadow-sm hover:shadow-md" +
-        " transition-shadow duration-200 no-print-break" +
+        " transition-shadow duration-200 avoid-break" +
         " print:shadow-none print:border print:border-gray-300 print:p-4" +
         (className ? ` ${className}` : "")
       }

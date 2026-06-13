@@ -61,7 +61,7 @@ function SkillBadge({ skill }: { skill: SkillWithLevel }) {
         <span
             role="listitem"
             aria-label={`${skill.name}: ${config.label}`}
-            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm border no-print-break print:ring print:ring-gray-300"
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm border avoid-break print:ring print:ring-gray-300"
             style={{
                 backgroundColor: config.badgeBg,
                 borderColor: config.badgeBorder,
@@ -95,7 +95,7 @@ function CategoryCard({ category }: { category: SkillCategory }) {
     );
 
     return (
-        <div role="region" aria-label={`Skills-Kategorie: ${category.label}`} className="rounded-2xl p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow no-print-break">
+        <div role="region" aria-label={`Skills-Kategorie: ${category.label}`} className="avoid-break rounded-2xl p-6 bg-white border border-gray-200 shadow-sm hover:shadow-md transition-shadow avoid-break">
             <div className="flex items-center gap-3 mb-5">
                 <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-slate-50 text-slate-500 shrink-0">
                     <IconComponent size={20} strokeWidth={1.8} />
@@ -136,7 +136,7 @@ function SkillCategories() {
             </p>
 
             {/* Legend */}
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 no-print-break bg-gray-50 rounded-lg p-3 border border-gray-100" role="navigation" aria-label="Legende für Erfahrungsstufen">
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 avoid-break bg-gray-50 rounded-lg p-3 border border-gray-100" role="navigation" aria-label="Legende für Erfahrungsstufen">
 
                 {Object.keys(levelConfig).map((level) => (
                     <LegendItem key={level} level={level as SkillWithLevel['level']} />
