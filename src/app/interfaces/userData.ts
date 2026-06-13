@@ -16,7 +16,16 @@ export interface Language {
   level?: string;
 }
 
-export type Skill = "Nestjs" | "Nextjs" | "Angular" | "Typescript" | "Javascript" | "CSS3" | "HTML5" | "Ionic" | "React";
+export type Skill =
+  | "Nestjs"
+  | "Nextjs"
+  | "Angular"
+  | "Typescript"
+  | "Javascript"
+  | "CSS3"
+  | "HTML5"
+  | "Ionic"
+  | "React";
 
 export interface Testimonial {
   name: string;
@@ -28,7 +37,7 @@ export interface Testimonial {
 
 export interface SkillWithLevel {
   name: string;
-  level?: 'beginner' | 'intermediate' | 'advanced' | 'expert';
+  level?: "beginner" | "intermediate" | "advanced" | "expert";
   yearsOfExperience?: number;
 }
 
@@ -39,7 +48,16 @@ export interface SkillCategory {
   skills: SkillWithLevel[];
 }
 
-export type SocialNames = "linkedIn" | "youtube" | "facebook" | "instagram" | "twitter" | "xing" | "email" | "github" | "phone";
+export type SocialNames =
+  | "linkedIn"
+  | "youtube"
+  | "facebook"
+  | "instagram"
+  | "twitter"
+  | "xing"
+  | "email"
+  | "github"
+  | "phone";
 
 export interface SocialIconProps {
   url?: string;
@@ -71,4 +89,5 @@ export interface UserData {
   contact?: ContactData;
   testimonials?: Testimonial[];
   skillCategories?: SkillCategory[];
+  everythingElse?: string[];
 }

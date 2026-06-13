@@ -11,14 +11,21 @@ const userData: UserData = {
     phone: "+4917682949586",
     city: "Neuwied",
   },
-  skills: [
-    "React",
-    "Angular",
-    "Ionic",
-    "Nextjs",
-    "Nestjs",
-    "Typescript",
+  skills: ["React", "Angular", "Ionic", "Nextjs", "Nestjs", "Typescript"],
+  everythingElse: [
+    "Scrum",
+    "Kanban",
+    "Github",
+    "Gitlab",
+    "Bitbucket",
+    "CI/CD",
+    "VS Code",
+    "MSSQL",
+    "MongoDB",
+    "Jira",
+    "Conflunce",
   ],
+
   languages: [
     { language: "Deutsch", level: "Muttersprache" },
     { language: "Englisch", level: "Fließend" },
@@ -47,63 +54,63 @@ const userData: UserData = {
   ],
   skillCategories: [
     {
-      "key": "frontend",
-      "label": "Frontend",
-      "icon": "Monitor",
-      "skills": [
-        { "name": "React", "level": "expert", "yearsOfExperience": 5 },
-        { "name": "Angular", "level": "expert", "yearsOfExperience": 7 },
-        { "name": "Next.js", "level": "advanced", "yearsOfExperience": 3 },
-        { "name": "Ionic", "level": "advanced", "yearsOfExperience": 4 },
-        { "name": "Tailwind CSS", "level": "advanced", "yearsOfExperience": 3 },
-        { "name": "Material UI", "level": "advanced", "yearsOfExperience": 3 }
-      ]
+      key: "frontend",
+      label: "Frontend",
+      icon: "Monitor",
+      skills: [
+        { name: "React", level: "expert", yearsOfExperience: 5 },
+        { name: "Angular", level: "expert", yearsOfExperience: 7 },
+        { name: "Next.js", level: "advanced", yearsOfExperience: 3 },
+        { name: "Ionic", level: "advanced", yearsOfExperience: 4 },
+        { name: "Tailwind CSS", level: "advanced", yearsOfExperience: 3 },
+        { name: "Material UI", level: "advanced", yearsOfExperience: 3 },
+      ],
     },
     {
-      "key": "backend",
-      "label": "Backend",
-      "icon": "Server",
-      "skills": [
-        { "name": "NestJS", "level": "expert", "yearsOfExperience": 4 },
-        { "name": "C#", "level": "advanced", "yearsOfExperience": 5 },
-        { "name": "Entity Framework", "level": "advanced", "yearsOfExperience": 4 },
-        { "name": "Python", "level": "beginner", "yearsOfExperience": 1 }
-      ]
+      key: "backend",
+      label: "Backend",
+      icon: "Server",
+      skills: [
+        { name: "NestJS", level: "expert", yearsOfExperience: 4 },
+        { name: "C#", level: "advanced", yearsOfExperience: 5 },
+        { name: "Entity Framework", level: "advanced", yearsOfExperience: 4 },
+        { name: "Python", level: "beginner", yearsOfExperience: 1 },
+      ],
     },
     {
-      "key": "devops",
-      "label": "DevOps / Infra",
-      "icon": "Container",
-      "skills": [
-        { "name": "Docker", "level": "advanced", "yearsOfExperience": 4 },
-        { "name": "GCloud", "level": "advanced", "yearsOfExperience": 3 },
-        { "name": "Terraform", "level": "intermediate", "yearsOfExperience": 2 },
-        { "name": "Jenkins", "level": "advanced", "yearsOfExperience": 3 },
-        { "name": "CI/CD", "level": "advanced", "yearsOfExperience": 5 }
-      ]
+      key: "devops",
+      label: "DevOps / Infra",
+      icon: "Container",
+      skills: [
+        { name: "Docker", level: "advanced", yearsOfExperience: 4 },
+        { name: "GCloud", level: "advanced", yearsOfExperience: 3 },
+        { name: "Terraform", level: "intermediate", yearsOfExperience: 2 },
+        { name: "Jenkins", level: "advanced", yearsOfExperience: 3 },
+        { name: "CI/CD", level: "advanced", yearsOfExperience: 5 },
+      ],
     },
     {
-      "key": "testing",
-      "label": "Testing",
-      "icon": "FlaskConical",
-      "skills": [
-        { "name": "Jest", "level": "expert", "yearsOfExperience": 4 },
-        { "name": "Playwright", "level": "advanced", "yearsOfExperience": 2 },
-        { "name": "Cypress", "level": "intermediate", "yearsOfExperience": 2 },
-        { "name": "Karma", "level": "advanced", "yearsOfExperience": 3 }
-      ]
+      key: "testing",
+      label: "Testing",
+      icon: "FlaskConical",
+      skills: [
+        { name: "Jest", level: "expert", yearsOfExperience: 4 },
+        { name: "Playwright", level: "advanced", yearsOfExperience: 2 },
+        { name: "Cypress", level: "intermediate", yearsOfExperience: 2 },
+        { name: "Karma", level: "advanced", yearsOfExperience: 3 },
+      ],
     },
     {
-      "key": "databases",
-      "label": "Datenbanken",
-      "icon": "Database",
-      "skills": [
-        { "name": "MongoDB", "level": "expert", "yearsOfExperience": 4 },
-        { "name": "MSSQL", "level": "advanced", "yearsOfExperience": 5 },
-        { "name": "SQLite", "level": "intermediate", "yearsOfExperience": 2 },
-        { "name": "PouchDB", "level": "intermediate", "yearsOfExperience": 2 }
-      ]
-    }
+      key: "databases",
+      label: "Datenbanken",
+      icon: "Database",
+      skills: [
+        { name: "MongoDB", level: "expert", yearsOfExperience: 4 },
+        { name: "MSSQL", level: "advanced", yearsOfExperience: 5 },
+        { name: "SQLite", level: "intermediate", yearsOfExperience: 2 },
+        { name: "PouchDB", level: "intermediate", yearsOfExperience: 2 },
+      ],
+    },
   ],
   experience: [
     {
@@ -127,7 +134,17 @@ const userData: UserData = {
       ],
       companyUrl: "https://www.jambit.com/",
       technologies: [
-        "TypeScript", "JavaScript", "Zeplin", "React", "Redux", "RTK Query", "Material UI", "Gitlab", "Jira", "Confluence", "Mattermost"
+        "TypeScript",
+        "JavaScript",
+        "Zeplin",
+        "React",
+        "Redux",
+        "RTK Query",
+        "Material UI",
+        "Gitlab",
+        "Jira",
+        "Confluence",
+        "Mattermost",
       ],
       roles: ["Frontend"],
     },
@@ -141,7 +158,7 @@ const userData: UserData = {
       companyUrl: "https://www.jambit.com/",
       addition: [
         "Implementierung von Kundenanforderungen",
-        "Implementierung von neuen Features und Behebung von Bugs im WPF"
+        "Implementierung von neuen Features und Behebung von Bugs im WPF",
       ],
       technologies: ["C#", "WPF", "SQLite", "Git", "CQRS"],
       roles: ["Fullstack", "Tester"],
@@ -155,9 +172,16 @@ const userData: UserData = {
       description: `Publishing-Service zur automatisierten Veröffentlichung von Stellenanzeigen auf externen Plattformen (Facebook, Joveo) mit KI-gestützter Optimierung.`,
       companyUrl: "https://www.jambit.com/",
       addition: [
-        "Erstellung und testen der PublishingService und integration ins bestehende System"
+        "Erstellung und testen der PublishingService und integration ins bestehende System",
       ],
-      technologies: ["Nextjs", "Nestjs", "GCloud", "Docker", "FacebookAPI", "joveo"],
+      technologies: [
+        "Nextjs",
+        "Nestjs",
+        "GCloud",
+        "Docker",
+        "FacebookAPI",
+        "joveo",
+      ],
       roles: ["Fullstack", "Tester"],
     },
     {
@@ -166,7 +190,10 @@ const userData: UserData = {
       projectName: "Jarvis - AI Bot",
       workRange: "02.2024 - 06.2024",
       description: `Entwicklung eines Prototyps für einen Chat Bot. Nachdem ein Handbuch vom Benutzer bereitgestellt wurde, können dem Bot fragen zu diesem gestellt werden.`,
-      addition: ["Implementierung von Frontend und Backend", "Integration von OpenAI"],
+      addition: [
+        "Implementierung von Frontend und Backend",
+        "Integration von OpenAI",
+      ],
       companyUrl: "https://www.jambit.com/",
       technologies: ["Python", "OpenAI", "ChatGPT", "Nextjs"],
       roles: ["Fullstack", "Tester"],
@@ -180,7 +207,7 @@ const userData: UserData = {
       projectUrl: "https://www.pcs.com/",
       addition: [
         "CI & CD Einrichtung und Einbindung",
-        "Einführung und Implementierung von Playwright"
+        "Einführung und Implementierung von Playwright",
       ],
       companyUrl: "https://www.jambit.com/",
       technologies: ["Python", "Jenkins", "Git", "Github", "Playwright"],

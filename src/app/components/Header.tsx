@@ -10,7 +10,7 @@ export default function HeaderComponent() {
   const [user] = useState<UserData>(userData);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-linear-to-br from-blue-500 to-cyan-600 shadow-lg print:rounded-none print:bg-white/30 print:shadow-none">
+    <div className="relative overflow-hidden rounded-2xl bg-linear-to-br from-blue-500 to-cyan-600 shadow-lg print:bg-white/30 print:shadow-none">
       {/* Subtle pattern dots */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
 
@@ -48,11 +48,11 @@ export default function HeaderComponent() {
         </div>
 
         {/* RIGHT: white content panel */}
-        <div className="flex flex-1 flex-col bg-white rounded-tr-2xl shadow-inner print:bg-transparent print:shadow-none">
+        <div className="flex flex-1 flex-col bg-white rounded-tr-2xl shadow-inner print:shadow-none">
 
           {/* Kontakt row — top half */}
-          <div className="flex-1 px-5 py-4 sm:px-6 sm:py-5 md:pr-8 lg:pr-10">
-            <h4 className="mb-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gray-400 print:hidden">
+          <div className="flex-1 print:border-r print:border-t px-5 py-4 sm:px-6 sm:py-5 md:pr-8 lg:pr-10">
+            <h4 className="mb-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gray-400">
               Kontakt
             </h4>
 
@@ -77,11 +77,11 @@ export default function HeaderComponent() {
           </div>
 
           {/* Divider — thin line */}
-          <hr className="mx-5 sm:mx-6 border-t border-gray-200 print:hidden" />
+          <hr className="mx-5 sm:mx-6 border-t border-gray-200" />
 
           {/* Sprache row — bottom half */}
-          <div className="px-5 py-4 sm:px-6 sm:py-5 md:px-8 lg:px-10">
-            <h4 className="mb-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gray-400 print:hidden">
+          <div className="px-5 py-4 sm:px-6 sm:py-5 md:px-8 lg:px-10 print:border-r print:border-b">
+            <h4 className="mb-2 text-[11px] font-bold uppercase tracking-[0.25em] text-gray-400">
               Sprachen
             </h4>
             <ul className="space-y-1.5 sm:space-y-2">

@@ -207,6 +207,18 @@ export default function Home() {
                 <section className="mt-8">
                   <SkillCategories />
                 </section>
+                
+                {/* Sonstiges */}
+                {userData.everythingElse && (
+                  <section className="mt-8">
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
+                      Sonstiges
+                    </h2>
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {userData.everythingElse.map((e) => e).join(", ")}
+                    </p>
+                  </section>
+                )}
 
                 {/* Werdegang — career timeline */}
                 <section className="mt-8">
