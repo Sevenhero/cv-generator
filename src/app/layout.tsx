@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import { Inter } from "next/font/google";
 import { Metadata } from "next";
 import userData from "../data/userData";
@@ -16,7 +17,7 @@ const slugTitle = `${userData.lastName.toLowerCase()}_${userData.firstName.toLow
 
 export const metadata: Metadata = {
   title: {
-    default: `${fullName} — Lebenslauf`,
+    default: `${fullName}`,
     template: `%s | CV von ${fullName}`,
   },
   description: userData.description?.slice(0, 160) ?? `Lebenslauf von ${fullName}. Titel: ${userData.title}.`,
