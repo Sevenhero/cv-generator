@@ -111,7 +111,8 @@ const userData: UserData = {
       projectName: "Immobilien-Genossenschaftsbank",
       projectUrl: "https://www.hausbank.de/startseite.html",
       company: "jambit GmbH",
-      workRange: "06.2025 bis heute",
+      // workRange: "06.2025 bis heute",
+      workRange: "06.2025 - 06.2026",
       description: `Unser Kunde, ein bundesweit agierendes Unternehmen in der Immobilienwirtschaft, hat als Kernprodukt eine Software zur Abwicklung aller Geschäftsvorfälle einer Hausverwaltung. Diese ist seit mehr als 20 Jahren gewachsen und bietet eine allumfassende Lösung, inklusive direkte Anbindung an Bankkonten und diverse andere Dienstleister im Ökosystem. Im Rahmen dieses Projekts soll die Software, welche aktuell aus dem Rechenzentrum via Remote Desktop verteilt wird, modernisiert werden und den Hausverwaltungen im Browser zur Verfügung gestellt werden. Dazu wird die Business Logik gekapselt und als Backend Service gestaltet. Anschließend kann sie via REST abgefragt werden. Die grafische Oberfläche wird komplett neu konzeptioniert und entwickelt. Es entsteht eine moderne Web App als Single Page Application.`,
       addition: [
         "Analyse und Dokumentation der bestehenden Architektur",

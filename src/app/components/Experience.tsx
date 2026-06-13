@@ -59,7 +59,7 @@ const ExperienceCard = ({
                   href={companyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 font-medium underline-offset-2 decoration-blue-300 hover:decoration-blue-500 transition-colors cursor-pointer print:inline print:text-gray-700 print:no-underline"
+                  className="text-blue-600 hover:text-blue-800 font-medium underline-offset-2 decoration-blue-300 hover:decoration-blue-500 transition-colors cursor-pointer print:inline print:no-underline"
                 >
                   {company}
                 </Link>
@@ -76,7 +76,7 @@ const ExperienceCard = ({
                 href={projectUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 font-medium underline-offset-2 decoration-blue-300 hover:decoration-blue-500 transition-colors cursor-pointer print:inline print:text-gray-700 print:no-underline"
+                className="text-blue-600 hover:text-blue-800 font-medium underline-offset-2 decoration-blue-300 hover:decoration-blue-500 transition-colors cursor-pointer print:inline print:no-underline"
               >
                 {projectName}
               </Link>
@@ -133,14 +133,7 @@ const ExperienceCard = ({
           {roles.map((role, i) => (
             <span
               key={i}
-              className="inline-block rounded-md px-3 py-1 text-xs font-medium bg-green-50 ring-1 ring-inset ring-green-200/60"
-              style={{
-                WebkitPrintColorAdjust: "exact",
-                printColorAdjust: "exact",
-                backgroundColor: "#dcfce7",
-                color: "#1e3a5f",
-                borderColor: "#bbf7d0" as any,
-              }}
+              className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 inset-ring inset-ring-green-600/20 dark:bg-green-400/10 dark:text-green-400 dark:inset-ring-green-500/20"
             >
               {role}
             </span>
@@ -158,14 +151,7 @@ const ExperienceCard = ({
           {technologies.map((tech, i) => (
             <span
               key={i}
-              className="inline-block rounded-md px-3 py-1 text-xs font-medium ring-blue-200 ring-1 ring-inset"
-              style={{
-                WebkitPrintColorAdjust: "exact",
-                printColorAdjust: "exact",
-                backgroundColor: "#dbeafe",
-                color: "#1e3a5f",
-                // borderColor: 'rgba(59,130,246,0.2)' as any,
-              }}
+              className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 inset-ring inset-ring-blue-700/10 dark:bg-blue-400/10 dark:text-blue-400 dark:inset-ring-blue-400/30"
             >
               {tech}
             </span>
