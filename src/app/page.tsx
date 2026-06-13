@@ -173,7 +173,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-gray-100 print:bg-white">
-        <div className="mx-auto sm:py-8 w-full max-w-250">
+        <div className="mx-auto w-full max-w-250">
           <div className="grid gap-6 sm:px-8">
             <div className="col-span-12 md:col-span-4">
               <div className="p-6">
@@ -268,7 +268,7 @@ export default function Home() {
                   </div>
                 </section>
               </div>
-              <div className="py-6 sm:px-0 px-4 page-break-before">
+              <div className="p-6 sm:px-0 page-break-before">
                 <section>
                   <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">
                     Projekte
@@ -284,7 +284,7 @@ export default function Home() {
               </div>
 
               {userData.testimonials && userData.testimonials.length > 0 && (
-                <section className="mt-4 mb-8">
+                <section className="sm:px-0 px-6">
                   <h2 className="text-sm font-bold uppercase tracking-widest sm:px-0 px-6 text-gray-400 mb-2">
                     Testimonials
                   </h2>
