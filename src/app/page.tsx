@@ -1,8 +1,8 @@
 "use client";
 
+import { Experience } from "./interfaces/experience";
 import ExperienceComponent from "./components/Experience";
 import HeaderComponent from "./components/Header";
-import Link from "next/link";
 import SkillCategories from "./components/SkillCategories";
 import TestimonialComponent from "./components/Testimonial";
 import userData from "../data/userData";
@@ -27,28 +27,6 @@ function toDisplay(date: number): string {
   return `${String(m).padStart(2, "0")}.${y}`;
 }
 
-function isActiveRange(workRange?: string): boolean {
-  return workRange ? /heute|present|now/i.test(workRange) : false;
-}
-
-type ParsedRange = {
-  start: number;
-  end: number;
-  isCurrent: boolean;
-};
-
-function parseWorkRange(workRange: string): ParsedRange {
-  const [rawStart = "", rawEnd = ""] = workRange
-    .split("–")
-    .map((s) => s.trim());
-
-  const start = parseDate(rawStart);
-  const isCurrent = /heute|present|current/i.test(rawEnd);
-  const end = isCurrent ? Date.now() : parseDate(rawEnd);
-
-  return { start, end, isCurrent };
-}
-
 type AggregatedEntry = {
   company: string;
   companyUrl: string;
@@ -59,17 +37,7 @@ type AggregatedEntry = {
   isCurrent: boolean;
 };
 
-function parseSingleDate(value: string): number {
-  const match = value.trim().match(/^(\d{1,2})\.(\d{4})$/);
-  if (!match) return 0;
-
-  const [, month, year] = match;
-  return new Date(Number(year), Number(month) - 1, 1).getTime();
-}
-
 function aggregateEmployers(): AggregatedEntry[] {
-  type ExperienceEntry = typeof userData.experience;
-
   const parseRange = (
     workRange: string | null | undefined,
   ): { start: number; end: number; isCurrent: boolean } => {
@@ -96,7 +64,7 @@ function aggregateEmployers(): AggregatedEntry[] {
     };
   };
 
-  const groups = new Map<string, ExperienceEntry[]>();
+  const groups = new Map<string, Experience[]>();
 
   for (const exp of userData.experience ?? []) {
     const company = exp.company?.trim();
@@ -207,7 +175,7 @@ export default function Home() {
                 <section className="mt-8">
                   <SkillCategories />
                 </section>
-                
+
                 {/* Sonstiges */}
                 {userData.everythingElse && (
                   <section className="mt-8">
