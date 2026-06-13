@@ -10,7 +10,7 @@ export default function HeaderComponent() {
   const [user] = useState<UserData>(userData);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-linear-to-br from-blue-500 to-cyan-600 shadow-lg print:bg-white/30 print:shadow-none">
+    <div className="relative overflow-hidden rounded-2xl shadow-lg print:bg-white/30 print:shadow-none bg-linear-to-br from-[#4ab1ff] to-[#00058d]">
       {/* Subtle pattern dots */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} />
 
@@ -35,11 +35,11 @@ export default function HeaderComponent() {
             </div>
 
             {!hidden && (
-              <div className="flex flex-col items-center text-center">
-                <h1 className="text-base font-semibold tracking-tight text-white drop-shadow-sm">
+              <div className="flex flex-col items-center text-center border-white border-2 bg-white/25 px-5 py-2 rounded-4xl">
+                <h1 className="text-base font-semibold tracking-tight drop-shadow-sm text-white">
                   {user.firstName} {user.lastName}
                 </h1>
-                <p className="mt-0.5 text-xs font-medium text-blue-100/90 sm:text-sm">
+                <p className="mt-0.5 text-xs font-medium text-white/90 sm:text-sm">
                   {user.title}
                 </p>
               </div>
