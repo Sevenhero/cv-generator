@@ -264,7 +264,7 @@ export default function Home() {
               </div>
 
               {userData.testimonials && userData.testimonials.length > 0 && (
-                <section className="sm:px-0 px-6">
+                <section className="sm:px-0 px-6 mb-6">
                   <h2 className="text-sm font-bold uppercase tracking-widest sm:px-0 px-6 text-gray-400 mb-2">
                     Testimonials
                   </h2>
