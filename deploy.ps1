@@ -14,7 +14,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 # Konfiguration
-$remoteDir = "/var/www/cv.kernke.dev/html"
+$remoteDir = "/var/www/cv.kernke.dev"
 $tmpDir    = "/tmp/cv-deploy"
 $zipLocal  = Join-Path $env:TEMP "cv-site.zip"
 $zipRemote = "$tmpDir/site.zip"

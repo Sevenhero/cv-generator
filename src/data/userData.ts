@@ -24,6 +24,8 @@ const userData: UserData = {
     "MongoDB",
     "Jira",
     "Conflunce",
+    "TDD",
+    "DDD",
   ],
 
   languages: [
@@ -113,6 +115,20 @@ const userData: UserData = {
     },
   ],
   experience: [
+    {
+      title: "Software Engineer",
+      company: "Septeo Group",
+      projectName: "Ergoneers next",
+      workRange: "08.2026 - heute",
+      description: `stp.one ist ein europäischer Anbieter von Legal-Tech-Software mit Hauptsitz in Karlsruhe. Das Unternehmen entwickelt Lösungen zur Digitalisierung und Automatisierung von Arbeitsprozessen in Kanzleien, Rechtsabteilungen und der Insolvenzverwaltung.`,
+      companyUrl: "https://www.stp.one/de",
+      addition: [
+        "Implementierung von Kundenanforderungen",
+        "Implementierung von neuen Features und Behebung von Bugs",
+      ],
+      technologies: ["C#", "Postgresql", "Git", "Angular", "Claude"],
+      roles: ["Backend", "Frontend", "Fullstack", "Tester"],
+    },
     {
       title: "Frontend Developer",
       projectName: "Immobilien-Genossenschaftsbank",
@@ -245,6 +261,8 @@ const userData: UserData = {
         "Confluence",
         "Toggl Track",
         "MongoDB",
+        "TDD",
+        "DDD",
       ],
     },
     {
